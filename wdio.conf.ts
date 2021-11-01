@@ -7,10 +7,24 @@ export const config: WebdriverIO.Config = {
     // ====================
     // Runner Configuration
     // ====================
-    //
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
-    runner: 'local',
+    // runner: 'local',
+
+    // protocol: 'https',
+    // hostname: 'integration-auto-proxy-new.devcloud.applause.com',
+    // port: 443,
+    // path: '/wd/hub/',
+    // user: 'ApplauseKey',
+    // key: 'GIVE_ME_A_KEY',
+
+    protocol: 'http',
+    hostname: '127.0.0.1',
+    port: 18080,
+    path: '/wd/hub/',
+    user: 'ApplauseKey',
+    key: 'FAKE_KEY',
+
     //
     // ==================
     // Specify Test Files
@@ -22,6 +36,7 @@ export const config: WebdriverIO.Config = {
     //
     specs: [
         './src/features/**/*.feature',
+        // './src/features/**/fake-applause.feature.fake',
     ],
     // Patterns to exclude.
     exclude: [
@@ -54,9 +69,18 @@ export const config: WebdriverIO.Config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
+        maxInstances: 1,
         //
         browserName: 'chrome',
+        'goog:chromeOptions': {},
+
+        'applause:options' : {
+            provider : 'SauceLabs',
+            apiKey: 'GIVE_ME_A_KEY',
+            runName: 'js-webdriver-cucumber',
+            productId: 267,
+        },
+
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -96,6 +120,7 @@ export const config: WebdriverIO.Config = {
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
     baseUrl: 'http://localhost:8080',
+    // baseUrl: 'http://automationpractice.com/index.php',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -130,15 +155,27 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec',
+    reporters: [
+        // 'spec',
         /**
          * use imported reporter class
          */
+
+        // integration
+        // [ApplauseReporter, {
+        //     baseUrl: 'https://integration-auto-api.devcloud.applause.com:443/',
+        //     apiKey: 'GIVE_ME_A_KEY',
+        //     productId: 267,
+        // }],
+
+        // local
         [ApplauseReporter, {
-            baseUrl: 'foobar',
-            apiKey: 'dfdf',
-            productId: 1,
-        }]],
+            baseUrl: 'https://127.0.0.1:8080/',
+            apiKey: 'FAKE_KEY',
+            productId: 267,
+        }],
+    ],
+
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
