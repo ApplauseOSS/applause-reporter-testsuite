@@ -5,6 +5,6 @@ Feature: Test the attributes of a given element
     Background:
         Given I open the site "/"
 
-    Scenario: "somethign something"
-        Then  I expect that the title contains "Store"
+    Scenario: "Test website is open"
+        Then  I expect that the title contains "Test Page"
 
