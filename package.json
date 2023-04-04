@@ -30,10 +30,13 @@
     "test:lint": "eslint 'src/**/*.ts' 'test/**/*.js!(setup.js)'",
     "test:unit": "jest --config=jest.config.js --detectOpenHandles",
     "test:features": "wdio run wdio.BUILD.conf.ts",
+    "test:playwright": "playwright test --config playwright.config.ts",
+    "test:playwright-browserstack": "playwright test --config playwright.config-browserstack.ts",
     "wdio": "wdio run wdio.conf.ts"
   },
   "dependencies": {},
   "devDependencies": {
+    "playwright": "^1.32.2",
     "@types/jest": "^26.0.21",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",

@@ -19,11 +19,11 @@ export const config: WebdriverIO.Config = {
     // key: 'GIVE_ME_A_KEY',
 
     protocol: 'http',
-    hostname: '127.0.0.1',
+    hostname: 'localhost',
     port: 18080,
     path: '/wd/hub/',
     user: 'ApplauseKey',
-    key: 'FAKE_KEY',
+    key: '43792e3b-e601-4593-a4c9-0457d04c0c260dc526',
 
     //
     // ==================
@@ -71,13 +71,11 @@ export const config: WebdriverIO.Config = {
         maxInstances: 1,
         //
         browserName: 'chrome',
-        'goog:chromeOptions': {},
-
         'applause:options' : {
             provider : 'SauceLabs',
-            apiKey: 'GIVE_ME_A_KEY',
-            runName: 'js-webdriver-cucumber',
-            productId: 267,
+            apiKey: '43792e3b-e601-4593-a4c9-0457d04c0c260dc526',
+            runName: 'js-webdriver-cucumber Ryan',
+            productId: 51
         },
 
         // If outputDir is provided WebdriverIO can capture driver session logs
@@ -168,9 +166,9 @@ export const config: WebdriverIO.Config = {
 
         // local
         [ApplauseReporter, {
-            baseUrl: 'https://127.0.0.1:8080/',
-            apiKey: 'FAKE_KEY',
-            productId: 267,
+            baseUrl: 'http://localhost:8080',
+            apiKey: '43792e3b-e601-4593-a4c9-0457d04c0c260dc526',
+            productId: 51,
         }],
     ],
 
