@@ -1,6 +1,6 @@
 import path from 'path';
 import { ApplauseReporter } from 'wdio-applause-reporter';
-import { hooks } from './src/support/hooks';
+import { hooks } from './cucumber/src/support/hooks';
 
 export const config: WebdriverIO.Config = {
     //
@@ -19,11 +19,11 @@ export const config: WebdriverIO.Config = {
     // key: 'GIVE_ME_A_KEY',
 
     protocol: 'http',
-    hostname: '127.0.0.1',
+    hostname: 'localhost',
     port: 18080,
     path: '/wd/hub/',
     user: 'ApplauseKey',
-    key: 'FAKE_KEY',
+    key: '43792e3b-e601-4593-a4c9-0457d04c0c260dc526',
 
     //
     // ==================
@@ -35,7 +35,7 @@ export const config: WebdriverIO.Config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './src/features/**/*.feature',
+        './cucumber/src/features/**/*.feature',
     ],
     // Patterns to exclude.
     exclude: [
@@ -71,13 +71,11 @@ export const config: WebdriverIO.Config = {
         maxInstances: 1,
         //
         browserName: 'chrome',
-        'goog:chromeOptions': {},
-
         'applause:options' : {
             provider : 'SauceLabs',
-            apiKey: 'GIVE_ME_A_KEY',
-            runName: 'js-webdriver-cucumber',
-            productId: 267,
+            apiKey: '43792e3b-e601-4593-a4c9-0457d04c0c260dc526',
+            runName: 'js-webdriver-cucumber Ryan',
+            productId: 51
         },
 
         // If outputDir is provided WebdriverIO can capture driver session logs
@@ -168,9 +166,9 @@ export const config: WebdriverIO.Config = {
 
         // local
         [ApplauseReporter, {
-            baseUrl: 'https://127.0.0.1:8080/',
-            apiKey: 'FAKE_KEY',
-            productId: 267,
+            baseUrl: 'http://localhost:8080',
+            apiKey: 'GIVE_ME_A_KEY',
+            productId: 51,
         }],
     ],
 
@@ -201,9 +199,9 @@ export const config: WebdriverIO.Config = {
         profile: [],
         // <string[]> (file/dir) require files before executing features
         require: [
-            './src/steps/given.ts',
-            './src/steps/then.ts',
-            './src/steps/when.ts',
+            './cucumber/src/steps/given.ts',
+            './cucumber/src/steps/then.ts',
+            './cucumber/src/steps/when.ts',
             // Or search a (sub)folder for JS files with a wildcard
             // works since version 1.1 of the wdio-cucumber-framework
             // './src/**/*.js',
