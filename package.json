@@ -25,11 +25,12 @@
     "selenium"
   ],
   "scripts": {
-    "install": "npm run install:wdio",
-    "install:wdio": "npm install --prefix webdriverio",
+    "install": "yarn run install:wdio",
+    "install:wdio": "yarn install --cwd webdriverio",
     "clean": "read -p \"Are you sure you want to clean the project? [y/n] \" REPLY; if [[ $REPLY =~ ^[Yy]$ ]]; then rm -R .git .github demo-app test .codeclimate.yml .travis.yml jest.json wdio.BUILD.conf.js src/features/**; fi",
     "test": "run-s test:*",
-    "test:lint": "eslint 'src/**/*.ts' 'test/**/*.js!(setup.js)'",
+    "test:lint": "yarn run test:lint:wdio",
+    "test:lint:wdio": "yarn run test:lint --cmd webdriverio",
     "test:wdio": "npm run wdio --prefix=webdriverio",
     "wdio": "wdio run wdio.conf.ts"
   }
