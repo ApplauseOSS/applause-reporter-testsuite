@@ -10,7 +10,7 @@ import type { Selector } from 'webdriverio';
 export default async (
     elementType: 'element' | 'button',
     selector: Selector,
-    falseCase?: any
+    falseCase?: boolean
 ) => {
     /**
      * The command to perform on the browser object

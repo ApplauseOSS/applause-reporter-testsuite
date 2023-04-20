@@ -1,9 +1,8 @@
 /**
  * Close the last opened window
- * @param  {String}   obsolete Type of object to close (window or tab)
  */
 /* eslint-disable no-unused-vars */
-export default async (obsolete: never) => {
+export default async () => {
     /* eslint-enable no-unused-vars */
     /**
      * The current window handle

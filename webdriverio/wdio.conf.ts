@@ -18,12 +18,13 @@ export const config: WebdriverIO.Config = {
     // user: 'ApplauseKey',
     // key: 'GIVE_ME_A_KEY',
 
-    protocol: 'http',
-    hostname: '127.0.0.1',
-    port: 18080,
-    path: '/wd/hub/',
-    user: 'ApplauseKey',
-    key: 'FAKE_KEY',
+    // Local Instance
+    // protocol: 'http',
+    // hostname: 'localhost',
+    // port: 18080,
+    // path: '/wd/hub/',
+    // user: 'ApplauseKey',
+    // key: 'GIVE_ME_A_KEY',
 
     //
     // ==================
@@ -71,14 +72,27 @@ export const config: WebdriverIO.Config = {
         maxInstances: 1,
         //
         browserName: 'chrome',
-        'goog:chromeOptions': {},
+        "goog:chromeOptions": {
+            "args": [
+              "--headless",
+              "--disable-gpu",
+              "--start-maximized",
+              "--disable-infobars",
+              "--disable-extensions",
+              "--disable-dev-shm-usage",
+              "--no-sandbox",
+              "--remote-allow-origins=*"
+            ]
+          },
 
-        'applause:options' : {
-            provider : 'SauceLabs',
-            apiKey: 'GIVE_ME_A_KEY',
-            runName: 'js-webdriver-cucumber',
-            productId: 267,
-        },
+
+        // If Running against the applause selenium grid, include the following sub-capabilities
+        // 'applause:options' : {
+        //     provider : 'SauceLabs',
+        //     apiKey: 'GIVE_ME_A_KEY',
+        //     runName: 'js-webdriver-cucumber Ryan',
+        //     productId: 51
+        // },
 
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -167,11 +181,11 @@ export const config: WebdriverIO.Config = {
         // }],
 
         // local
-        [ApplauseReporter, {
-            baseUrl: 'https://127.0.0.1:8080/',
-            apiKey: 'FAKE_KEY',
-            productId: 267,
-        }],
+        // [ApplauseReporter, {
+        //     baseUrl: 'http://localhost:8080',
+        //     apiKey: 'GIVE_ME_A_KEY',
+        //     productId: 51,
+        // }],
     ],
 
     //
