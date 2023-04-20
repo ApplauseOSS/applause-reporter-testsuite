@@ -16,3 +16,6 @@ coverage
 yarn.lock
 
 logs/
+/test-results/
+/playwright-report/
+/playwright/.cache/
