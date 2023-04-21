@@ -10,10 +10,6 @@ npm run test:lint
 ```
 
 
-## Testing
-The project has a unit-test set-up using [Jest](https://facebook.github.io/jest)
-When you add/change a feature test you should add/change a corresponding test(s)
-
 ### Testing commands
 As stated above the command for validating the code using ESLint is:
 
