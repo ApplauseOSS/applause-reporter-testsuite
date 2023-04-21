@@ -31,7 +31,6 @@ Choose one of the following options:
 
 - *On Windows:*
 -- Remove the directories `/.git`, `/.github`, `/demo-app` & `/test`
--- Remove the files `.travis.yml`, `jest.json` & `wdio.BUILD.conf.js`
 -- Remove all the demo features from the `/src/features` directory
 
 4. Install the dependencies (`yarn install`)

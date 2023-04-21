@@ -1,6 +1,6 @@
 import path from 'path';
-import { ApplauseReporter } from 'wdio-applause-reporter';
-import { hooks } from './src/support/hooks';
+// import { ApplauseReporter } from 'wdio-applause-reporter';
+import { hooks } from './support/hooks';
 
 export const config: WebdriverIO.Config = {
     //
@@ -36,7 +36,7 @@ export const config: WebdriverIO.Config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './src/features/**/*.feature',
+        './features/**/*.feature',
     ],
     // Patterns to exclude.
     exclude: [
@@ -215,9 +215,9 @@ export const config: WebdriverIO.Config = {
         profile: [],
         // <string[]> (file/dir) require files before executing features
         require: [
-            './src/steps/given.ts',
-            './src/steps/then.ts',
-            './src/steps/when.ts',
+            './steps/given.ts',
+            './steps/then.ts',
+            './steps/when.ts',
             // Or search a (sub)folder for JS files with a wildcard
             // works since version 1.1 of the wdio-cucumber-framework
             // './src/**/*.js',
