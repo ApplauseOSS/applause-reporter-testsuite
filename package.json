@@ -27,15 +27,17 @@
   ],
   "private": true,
   "scripts": {
-    "ci": "npm run ci:wdio",
+    "ci": "npm run ci:wdio && npm run ci:playwright",
     "ci:wdio": "npm ci --prefix webdriverio",
-    "install": "npm run install:wdio",
+    "ci:playwright": "npm ci --prefix playwright",
+    "install": "npm run install:wdio && npm run install:playwright",
     "install:wdio": "npm install --prefix webdriverio",
-    "clean": "read -p \"Are you sure you want to clean the project? [y/n] \" REPLY; if [[ $REPLY =~ ^[Yy]$ ]]; then rm -R .git .github demo-app test .codeclimate.yml .travis.yml jest.json wdio.BUILD.conf.js src/features/**; fi",
-    "test": "npm run test:wdio",
+    "install:playwright": "npm install --prefix playwright",
+    "test": "npm run test:wdio && npm run test:playwright",
     "test:wdio": "npm run test --prefix webdriverio",
-    "test:lint": "npm run test:lint:wdio",
+    "test:playwright": "npm run test --prefix playwright",
+    "test:lint": "npm run test:lint:wdio && npm run test:lint:playwright",
     "test:lint:wdio": "npm run test:lint --prefix webdriverio",
-    "wdio": "wdio run wdio.conf.ts"
+    "test:lint:playwright": "npm run test:lint --prefix playwright"
   }
 }
