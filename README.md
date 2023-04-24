@@ -1,11 +1,21 @@
-Cucumber Boilerplate
-====================
 
-[![Test](https://github.com/webdriverio/cucumber-boilerplate/actions/workflows/test.yaml/badge.svg)](https://github.com/webdriverio/cucumber-boilerplate/actions/workflows/test.yaml)
+# Automation Reporter Testsuite
 
-***
+Boilerplate project to show examples of integrating our Applause Reporter plugins with various frameworks.
 
-Boilerplate project to run WebdriverIO (v7) tests with [Cucumber](https://cucumber.io/) and brings **true** [BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) to JavaScript. Instead of writing complicated test code that only developers can understand, Cucumber maps an ordinary language to code and allows to start with the test process in the early stages of your product development.
+## Supported Test Runners
+
+### WebDriverIO Runner
+
+We support runing WebdriverIO (v7) tests with any test runner supported by the WebDriverIO Runner.
+
+### Mocha Runner
+
+We support the mocha test runner. This example uses Playwright to write tests.
+
+### Cucumber Runner
+
+We also support running tests with Cucumber outside of WebDriverIO
 
 ## Requirements
 
@@ -16,37 +26,9 @@ Although this project works fine with NPM we recommend to use Yarn (>= 1.0.0) in
 
 Also this project doesn't cover setting up a proper test environment. You need to download specific browser driver yourself and run the prior starting tests or use a cloud provider like [SauceLabs](https://saucelabs.com/).
 
-## Quick start
+# WebDriver IO
 
-Choose one of the following options:
-
-1. Download the latest stable release [here](https://github.com/webdriverio/cucumber-boilerplate/archive/main.zip) or clone the git repo — `git clone https://github.com/webdriverio/cucumber-boilerplate.git`
-
-2. Then:
-- Copy the files to your project into a directory like `/integrationtests` (note the hidden files!)
-
-3. Clean the project (Optional):
-- *On OSX/Linux:*
--- Run `yarn run clean`
-
-- *On Windows:*
--- Remove the directories `/.git`, `/.github`, `/demo-app` & `/test`
--- Remove all the demo features from the `/src/features` directory
-
-4. Install the dependencies (`yarn install`)
-
-Now you are ready to write your own features.
-
-## Features
-
-- Super simple setup
-- Full integration with [WebdriverIO](http://webdriver.io/)
-- Over 150 predefined steps that cover almost everything you need, you can start writing tests right away
-- Easy integration with cloud services like [Sauce Labs](https://saucelabs.com/)
-- Integration of WebdriverIO's Multiremote functionality
-- Easy to run tests in parallel
-
-# How to write a test
+## How to write tests
 
 Tests are written in [Gherkin syntax](https://cucumber.io/docs/gherkin/)
 that means that you write down what's supposed to happen in a real language. All test files are located in
@@ -54,7 +36,8 @@ that means that you write down what's supposed to happen in a real language. All
 directory. They should demonstrate, how tests could look like. Just create a new file and write your first
 test.
 
-__myFirstTest.feature__
+### myFirstTest.feature
+
 ```gherkin
 Feature:
     In order to keep my product stable
@@ -75,27 +58,21 @@ Scenario: Another test
 This test opens the browser and navigates them to google.com to check if the title contains the search
 query after doing a search. As you can see, it is pretty simple and understandable for everyone.
 
-# How to run the test
+## How to run the tests
 
-Start the local web server:
-
-```sh
-$ yarn run test
-```
-
-To run your tests just call the [WDIO runner](http://webdriver.io/guide/testrunner/gettingstarted.html):
+Start the local web server, the you can run
 
 ```sh
-$ yarn run wdio
+npm run test:wdio
 ```
 
-_please note_ The WDIO runner uses the configuration file `wdio.conf.js` by default.
+*please note* The WDIO runner uses the configuration file `wdio.conf.js` by default.
 
-# Configurations
+## Configurations
 
 To configure your tests, checkout the [`wdio.conf.js`](https://github.com/webdriverio/cucumber-boilerplate/blob/main/wdio.conf.js) file in your test directory. It comes with a bunch of documented options you can choose from.
 
-## Environment-specific configurations
+### Environment-specific configurations
 
 You can setup multiple configs for specific environments. Let's say you want to have a different `baseUrl` for
 your local and pre-deploy tests. Use the `wdio.conf.js` to set all general configs (like mochaOpts) that don't change.
@@ -108,7 +85,8 @@ wdio.<ENVIRONMENT>.conf.js
 
 Now you can create a specific config for your pre-deploy tests:
 
-__wdio.STAGING.conf.js__
+#### wdio.STAGING.conf.js
+
 ```js
 var config = require('./wdio.conf.js').config;
 
@@ -121,18 +99,18 @@ Your environment-specific config file will get merged into the default config fi
 To run a test in a specific environment just add the desired configuration file as the first parameter:
 
 ```sh
-$ yarn run wdio wdio.STAGING.conf.js
+yarn run wdio wdio.STAGING.conf.js
 ```
 
-# Running single feature
+## Running single feature
+
 Sometimes it's useful to only execute a single feature file, to do so use the following command:
 
 ```sh
-$ npx wdio wdio.conf.js --spec ./test/features/select.feature
+npx wdio wdio.conf.js --spec ./test/features/select.feature
 ```
 
-
-# Using tags
+## Using tags
 
 If you want to run only specific tests you can mark your features with tags. These tags will be placed before each feature like so:
 
@@ -144,12 +122,12 @@ Feature: ...
 To run only the tests with specific tag(s) use the `--cucumberOpts.tagExpression=` parameter like so:
 
 ```sh
-$ npx wdio wdio.conf.js --cucumberOpts.tagExpression='@Tag or @AnotherTag'
+npx wdio wdio.conf.js --cucumberOpts.tagExpression='@Tag or @AnotherTag'
 ```
 
 For more tag options please see the [Cucumber.js documentation](https://docs.cucumber.io/tag-expressions/)
 
-# Pending test
+## Pending test
 
 If you have failing or unimplemented tests you can mark them as "Pending" so they will get skipped.
 
@@ -163,7 +141,7 @@ Feature: ...
 Scenario: ...
 ```
 
-# Adding new steps and snippets
+## Adding new steps and snippets
 
 The predefined snippets allow you to do a lot of common things but you might need extra snippets which
 are better aligned with your aims. To do so you will find all step definitions in `./src/steps`. They
@@ -176,7 +154,7 @@ You can access the browser and your WebdriverIO instance with `browser`.
 
 To assert values this boilerplate project uses WebdriverIOs embedded assertion library called [expect-webdriverio](https://www.npmjs.com/package/expect-webdriverio).
 
-# Comments
+## Comments
 
 You can add additional descriptive comments in your feature files.
 
@@ -195,81 +173,118 @@ Scenario: check if username is present
     Then the username "roboter" should be present in the header
 ```
 
-# List of predefined steps
+## List of predefined steps
 
 Check out all predefined snippets. You can see how they get used in [`sampleSnippets.feature`](https://github.com/webdriverio/cucumber-boilerplate/blob/main/src/features/sampleSnippets.feature).
 
-## Given steps
+### Given steps
 
-- `I open the (url|site) "([^"]*)?"` <br>Open a site in the current browser window/tab
-- `the element "([^"]*)?" is( not)* displayed` <br>Check the (in)visibility of an element
-- `the element "([^"]*)?" is( not)* enabled` <br>Check if an element is (not) enabled
-- `the element "([^"]*)?" is( not)* selected` <br>Check if an element is (not) selected
-- `the checkbox "([^"]*)?" is( not)* checked` <br>Check if a checkbox is (not) checked
-- `there is (an|no) element "([^"]*)?" on the page` <br>Check if an element (does not) exist
-- `the title is( not)* "([^"]*)?"` <br>Check the title of the current browser window/tab
-- `the element "([^"]*)?" contains( not)* the same text as element "([^"]*)?"` <br>Compare the text of two elements
-- `the (button|element) "([^"]*)?"( not)* contains the text "([^"]*)?"` <br>Check if an element contains the given text
-- `the (button|element) "([^"]*)?"( not)* contains any text` <br>Check if an element does not contain any text
-- `the (button|element) "([^"]*)?" is( not)* empty` <br>Check if an element is empty
-- `the page url is( not)* "([^"]*)?"` <br>Check the url of the current browser window/tab
-- `the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"` <br>Check the value of an element's (css) attribute
-- `the cookie "([^"]*)?" contains( not)* the value "([^"]*)?"` <br>Check the value of a cookie
-- `the cookie "([^"]*)?" does( not)* exist` <br>Check the existence of a cookie
-- `the element "([^"]*)?" is( not)* ([\d]+)px (broad|tall)` <br>Check the width/height of an element
-- `the element "([^"]*)?" is( not)* positioned at ([\d]+)px on the (x|y) axis` <br>Check the position of an element
-- `I have a screen that is ([\d]+) by ([\d]+) pixels` <br>Set the browser size to a given size
-- `I have closed all but the first (window|tab)` <br>Close all but the first browser window/tab
-- `a (alertbox|confirmbox|prompt) is( not)* opened` <br>Check if a modal is opened
+- `I open the (url|site) "([^"]*)?"` - Open a site in the current browser window/tab
+- `the element "([^"]*)?" is( not)* displayed` - Check the (in)visibility of an element
+- `the element "([^"]*)?" is( not)* enabled` - Check if an element is (not) enabled
+- `the element "([^"]*)?" is( not)* selected` - Check if an element is (not) selected
+- `the checkbox "([^"]*)?" is( not)* checked` - Check if a checkbox is (not) checked
+- `there is (an|no) element "([^"]*)?" on the page` - Check if an element (does not) exist
+- `the title is( not)* "([^"]*)?"` - Check the title of the current browser window/tab
+- `the element "([^"]*)?" contains( not)* the same text as element "([^"]*)?"` - Compare the text of two elements
+- `the (button|element) "([^"]*)?"( not)* contains the text "([^"]*)?"` - Check if an element contains the given text
+- `the (button|element) "([^"]*)?"( not)* contains any text` - Check if an element does not contain any text
+- `the (button|element) "([^"]*)?" is( not)* empty` - Check if an element is empty
+- `the page url is( not)* "([^"]*)?"` - Check the url of the current browser window/tab
+- `the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"` - Check the value of an element's (css) attribute
+- `the cookie "([^"]*)?" contains( not)* the value "([^"]*)?"` - Check the value of a cookie
+- `the cookie "([^"]*)?" does( not)* exist` - Check the existence of a cookie
+- `the element "([^"]*)?" is( not)* ([\d]+)px (broad|tall)` - Check the width/height of an element
+- `the element "([^"]*)?" is( not)* positioned at ([\d]+)px on the (x|y) axis` - Check the position of an element
+- `I have a screen that is ([\d]+) by ([\d]+) pixels` - Set the browser size to a given size
+- `I have closed all but the first (window|tab)` - Close all but the first browser window/tab
+- `a (alertbox|confirmbox|prompt) is( not)* opened` - Check if a modal is opened
 
-## Then steps
+### Then steps
 
-- `I expect that the title is( not)* "([^"]*)?"` <br>Check the title of the current browser window/tab
-- `I expect that element "([^"]*)?" does( not)* appear exactly "([^"]*)?" times` <br>Checks that the element is on the page a specific number of times
-- `I expect that element "([^"]*)?" is( not)* visible` <br>Check if a certain element is visible
-- `I expect that element "([^"]*)?" becomes( not)* visible` <br>Check if a certain element becomes visible
-- `I expect that element "([^"]*)?" is( not)* within the viewport` <br>Check if a certain element is within the current viewport
-- `I expect that element "([^"]*)?" does( not)* exist` <br>Check if a certain element exists
-- `I expect that element "([^"]*)?"( not)* contains the same text as element "([^"]*)?"` <br>Compare the text of two elements
-- `I expect that (button|element) "([^"]*)?"( not)* contains the text "([^"]*)?"` <br>Check if an element or input field contains the given text
-- `I expect that (button|element) "([^"]*)?"( not)* contains any text` <br>Check if an element or input field contains any text
-- `I expect that (button|elementelement) "([^"]*)?" is( not)* empty` <br>Check if an element or input field is empty
-- `I expect that the url is( not)* "([^"]*)?"` <br>Check if the the URL of the current browser window/tab is a certain string
-- `I expect that the path is( not)* "([^"]*)?"` <br>Check if the path of the URL of the current browser window/tab is a certain string
-- `I expect the url to( not)* contain "([^"]*)?"` <br>Check if the URL of the current browser window/tab contains a certain string
-- `I expect that the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"` <br>Check the value of an element's (css) attribute
-- `I expect that checkbox "([^"]*)?" is( not)* checked` <br>Check if a check-box is (not) checked
-- `I expect that element "([^"]*)?" is( not)* selected` <br>Check if an element is (not) selected
-- `I expect that element "([^"]*)?" is( not)* enabled` <br>Check if an element is (not) enabled
-- `I expect that cookie "([^"]*)?"( not)* contains "([^"]*)?"` <br>Check if a cookie with a certain name contains a certain value
-- `I expect that cookie "([^"]*)?"( not)* exists` <br>Check if a cookie with a certain name exist
-- `I expect that element "([^"]*)?" is( not)* ([\d]+)px (broad|tall)` <br>Check the width/height of an element
-- `I expect that element "([^"]*)?" is( not)* positioned at ([\d]+)px on the (x|y) axis` <br>Check the position of an element
-- `I expect that element "([^"]*)?" (has|does not have) the class "([^"]*)?"` <br>Check if an element has a certain class
-- `I expect a new (window|tab) has( not)* been opened` <br>Check if a new window/tab has been opened
-- `I expect the url "([^"]*)?" is opened in a new (tab|window)` <br>Check if a URL is opened in a new browser window/tab
-- `I expect that element "([^"]*)?" is( not)* focused` <br>Check if an element has the focus
-- `I wait on element "([^"]*)?"( for (\d+)ms)*( to( not)* (be checked|be enabled|be selected|be visible|contain a text|contain a value|exist))*` <br>Wait for an element to be checked, enabled, selected, visible, contain a certain value or text or to exist
-- `I expect that a (alertbox|confirmbox|prompt) is( not)* opened` <br>Check if a modal is opened
-- `I expect that a (alertbox|confirmbox|prompt)( not)* contains the text "$text"` <br>Check the text of a modal
+- `I expect that the title is( not)* "([^"]*)?"` - Check the title of the current browser window/tab
+- `I expect that element "([^"]*)?" does( not)* appear exactly "([^"]*)?" times` - Checks that the element is on the page a specific number of times
+- `I expect that element "([^"]*)?" is( not)* visible` - Check if a certain element is visible
+- `I expect that element "([^"]*)?" becomes( not)* visible` - Check if a certain element becomes visible
+- `I expect that element "([^"]*)?" is( not)* within the viewport` - Check if a certain element is within the current viewport
+- `I expect that element "([^"]*)?" does( not)* exist` - Check if a certain element exists
+- `I expect that element "([^"]*)?"( not)* contains the same text as element "([^"]*)?"` - Compare the text of two elements
+- `I expect that (button|element) "([^"]*)?"( not)* contains the text "([^"]*)?"` - Check if an element or input field contains the given text
+- `I expect that (button|element) "([^"]*)?"( not)* contains any text` - Check if an element or input field contains any text
+- `I expect that (button|elementelement) "([^"]*)?" is( not)* empty` - Check if an element or input field is empty
+- `I expect that the url is( not)* "([^"]*)?"` - Check if the the URL of the current browser window/tab is a certain string
+- `I expect that the path is( not)* "([^"]*)?"` - Check if the path of the URL of the current browser window/tab is a certain string
+- `I expect the url to( not)* contain "([^"]*)?"` - Check if the URL of the current browser window/tab contains a certain string
+- `I expect that the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"` - Check the value of an element's (css) attribute
+- `I expect that checkbox "([^"]*)?" is( not)* checked` - Check if a check-box is (not) checked
+- `I expect that element "([^"]*)?" is( not)* selected` - Check if an element is (not) selected
+- `I expect that element "([^"]*)?" is( not)* enabled` - Check if an element is (not) enabled
+- `I expect that cookie "([^"]*)?"( not)* contains "([^"]*)?"` - Check if a cookie with a certain name contains a certain value
+- `I expect that cookie "([^"]*)?"( not)* exists` - Check if a cookie with a certain name exist
+- `I expect that element "([^"]*)?" is( not)* ([\d]+)px (broad|tall)` - Check the width/height of an element
+- `I expect that element "([^"]*)?" is( not)* positioned at ([\d]+)px on the (x|y) axis` - Check the position of an element
+- `I expect that element "([^"]*)?" (has|does not have) the class "([^"]*)?"` - Check if an element has a certain class
+- `I expect a new (window|tab) has( not)* been opened` - Check if a new window/tab has been opened
+- `I expect the url "([^"]*)?" is opened in a new (tab|window)` - Check if a URL is opened in a new browser window/tab
+- `I expect that element "([^"]*)?" is( not)* focused` - Check if an element has the focus
+- `I wait on element "([^"]*)?"( for (\d+)ms)*( to( not)* (be checked|be enabled|be selected|be visible|contain a text|contain a value|exist))*` - Wait for an element to be checked, enabled, selected, visible, contain a certain value or text or to exist
+- `I expect that a (alertbox|confirmbox|prompt) is( not)* opened` - Check if a modal is opened
+- `I expect that a (alertbox|confirmbox|prompt)( not)* contains the text "$text"` - Check the text of a modal
 
-## When steps
+### When steps
 
-- `I (click|doubleclick) on the (link|button|element) "([^"]*)?"` <br>(Double)click a link, button or element
-- `I (add|set) "([^"]*)?" to the inputfield "([^"]*)?"` <br>Add or set the content of an input field
-- `I clear the inputfield "([^"]*)?"` <br>Clear an input field
-- `I drag element "([^"]*)?" to element "([^"]*)?"` <br>Drag an element to another element
-- `I submit the form "([^"]*)?"` <br>Submit a form
-- `I pause for (\d+)ms` <br>Pause for a certain number of milliseconds
-- `I set a cookie "([^"]*)?" with the content "([^"]*)?"` <br>Set the content of a cookie with the given name to  the given string
-- `I delete the cookie "([^"]*)?"` <br>Delete the cookie with the given name
-- `I press "([^"]*)?"` <br>Press a given key. You’ll find all supported characters [here](https://w3c.github.io/webdriver/webdriver-spec.html#keyboard-actions). To do that, the value has to correspond to a key from the table.
-- `I (accept|dismiss) the (alertbox|confirmbox|prompt)` <br>Accept or dismiss a modal window
-- `I enter "([^"]*)?" into the prompt` <br>Enter a given text into a modal prompt
-- `I scroll to element "([^"]*)?"` <br>Scroll to a given element
-- `I close the last opened (window|tab)` <br>Close the last opened browser window/tab
-- `I focus the last opened (window|tab)` <br>Focus the last opened browser window/tab
-- `I log in to site with username "([^"]*)?" and password "([^"]*)?"` <br>Login to a site with the given username and password
-- `I select the (\d+)(st|nd|rd|th) option for element "([^"]*)?"` <br>Select an option based on it's index
-- `I select the option with the (name|value|text) "([^"]*)?" for element "([^"]*)?"` <br>Select an option based on its name, value or visible text
-- `I move to element "([^"]*)?"( with an offset of (\d+),(\d+))` <br>Move the mouse by an (optional) offset of the specified element
+- `I (click|doubleclick) on the (link|button|element) "([^"]*)?"` - (Double)click a link, button or element
+- `I (add|set) "([^"]*)?" to the inputfield "([^"]*)?"` - Add or set the content of an input field
+- `I clear the inputfield "([^"]*)?"` - Clear an input field
+- `I drag element "([^"]*)?" to element "([^"]*)?"` - Drag an element to another element
+- `I submit the form "([^"]*)?"` - Submit a form
+- `I pause for (\d+)ms` - Pause for a certain number of milliseconds
+- `I set a cookie "([^"]*)?" with the content "([^"]*)?"` - Set the content of a cookie with the given name to  the given string
+- `I delete the cookie "([^"]*)?"` - Delete the cookie with the given name
+- `I press "([^"]*)?"` - Press a given key. You’ll find all supported characters [here](https://w3c.github.io/webdriver/webdriver-spec.html#keyboard-actions). To do that, the value has to correspond to a key from the table.
+- `I (accept|dismiss) the (alertbox|confirmbox|prompt)` - Accept or dismiss a modal window
+- `I enter "([^"]*)?" into the prompt` - Enter a given text into a modal prompt
+- `I scroll to element "([^"]*)?"` - Scroll to a given element
+- `I close the last opened (window|tab)` - Close the last opened browser window/tab
+- `I focus the last opened (window|tab)` - Focus the last opened browser window/tab
+- `I log in to site with username "([^"]*)?" and password "([^"]*)?"` - Login to a site with the given username and password
+- `I select the (\d+)(st|nd|rd|th) option for element "([^"]*)?"` - Select an option based on it's index
+- `I select the option with the (name|value|text) "([^"]*)?" for element "([^"]*)?"` - Select an option based on its name, value or visible text
+- `I move to element "([^"]*)?"( with an offset of (\d+),(\d+))` - Move the mouse by an (optional) offset of the specified element
+
+# Mocha with Playwright
+
+## How to run the playwright tests
+
+Start the local web server, the you can run
+
+```sh
+npm run test:playwright
+```
+
+## Configuration
+
+To configure the tests to run against the Applause framework, you will need to fill in `playwright/applause.json` with your information this will enable reporting to the automation api. You will then need to use the Mocha Reporter by specifying the reporter in the mocha command: `mocha --reporter ./node_modules/mocha-applause-reporter/dist/index.js`
+
+You can also point your tests at the applause datatap proxy and to a playwright provider by using the following:
+
+```javascript
+const bsCaps = {
+    'browser': 'playwright-chromium',
+    'os': 'osx',
+    'os_version': 'big sur',
+    'name': 'Playwright-mocha test on Chromium',
+    'build': 'playwright-mocha-build-1',
+    'browserstack.username': 'YOUR_USERNAME',
+    'browserstack.accessKey': 'YOUR_ACCESS_KEY',
+    'client.playwrightVersion': clientPlaywrightVersion
+};
+
+const applauseCapabilities = {
+    'applause:options': {
+        apiKey: 'PASS_ME_A_KEY',
+        providerUrl: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(bsCaps))}`
+}
+}
+const browser = await chromium.connectOverCDP(`ws://datatapURI/cdp?caps=${encodeURIComponent(JSON.stringify(applauseCapabilities))}`);
+```

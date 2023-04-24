@@ -1,9 +1,7 @@
 {
-  "author": "Christian Bromann <christian@saucelabs.com>",
-  "license": "MIT",
   "name": "webdriverio",
-  "version": "2.0.0",
-  "description": "Boilerplate project to run WebdriverIO tests with Cucumber",
+  "version": "1.0.0",
+  "description": "Boilerplate project to run WebdriverIO tests against the applause automation services",
   "scripts": {
     "test": "wdio run wdio.conf.ts",
     "test:lint": "eslint 'steps/**/*.ts' 'support/**/*.ts'"

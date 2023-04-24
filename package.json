@@ -1,21 +1,8 @@
 {
-  "author": "Christian Bromann <christian@saucelabs.com>",
   "license": "MIT",
-  "name": "cucumber-boilerplate",
-  "version": "2.0.0",
-  "description": "Boilerplate project to run WebdriverIO tests with Cucumber",
-  "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
-  "contributors": [
-    "W. van Kuipers <github@pwnd.nl>"
-  ],
-  "repository": {
-    "type": "git",
-    "getUrl": "https://github.com/webdriverio/cucumber-boilerplate.git"
-  },
-  "workspaces": ["webdriverio"],
-  "bugs": {
-    "getUrl": "https://github.com/webdriverio/cucumber-boilerplate/issues"
-  },
+  "name": "applause-reporter-testsuite",
+  "version": "1.0.0",
+  "description": "Boilerplate project to run tests against the Applause Automation services",
   "keywords": [
     "wdio",
     "webdriver",
@@ -25,7 +12,6 @@
     "boilerplate",
     "selenium"
   ],
-  "private": true,
   "scripts": {
     "ci": "npm run ci:wdio && npm run ci:playwright",
     "ci:wdio": "npm ci --prefix webdriverio",
