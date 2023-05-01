@@ -39,7 +39,7 @@ describe('example mocha test', function () {
         // + `${encodeURIComponent(JSON.stringify(applauseCapabilities))}`);
         context = await browser.newContext();
         page = await context.newPage();
-        await page.goto('https://admin.stage.automation.applause.com/sdktestpage.html', { timeout: 10000 });
+        await page.goto('https://admin.stage.automation.applause.com/assets/sdktestpage.html', { timeout: 10000 });
     });
     afterEach(async () => {
         await browser.close();
