@@ -48,7 +48,7 @@ describe('example mocha test', function () {
         context = await browser.newContext();
         page = await context.newPage();
         await page.goto(
-            'https://admin.stage.automation.applause.com/sdktestpage.html',
+            'https://admin.stage.automation.applause.com/assets/sdktestpage.html',
             { timeout: 10000 }
         );
     });
