@@ -4,8 +4,8 @@
     "description": "Boilerplate project to run playwright tests and report to the applause automation services",
     "scripts": {
         "build": "tsc",
-        "test": "npm run build && mocha",
-        "test:reporting": "npm run build && mocha --reporter ./node_modules/mocha-applause-reporter/dist/index.js",
+        "test": "npm run build && mocha dist/test",
+        "test:reporting": "npm run build && mocha dist/test --reporter ./node_modules/mocha-applause-reporter/dist/index.js",
         "test:lint": "eslint 'test/**/*.ts' --fix"
     },
     "devDependencies": {

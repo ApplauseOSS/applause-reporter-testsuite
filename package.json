@@ -13,6 +13,8 @@
     "selenium"
   ],
   "scripts": {
+    "build": "npm run build:playwright",
+    "build:playwright": "npm run build --prefix playwright",
     "ci": "npm run ci:wdio && npm run ci:playwright",
     "ci:wdio": "npm ci --prefix webdriverio",
     "ci:playwright": "npm ci --prefix playwright",
