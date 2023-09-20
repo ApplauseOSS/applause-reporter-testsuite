@@ -4,11 +4,10 @@ import {
     BrowserContext,
     Page
 } from 'playwright';
-import { bsConnect, datatapConnect, localHeadlessChrome } from '../config/playwrightLauncher';
-import { chromiumCaps } from '../config/remoteCapabilities';
+import { localHeadlessChrome } from '../config/playwrightLauncher';
 
 const timeoutMs = 10_000;
-describe('example mocha test', function () {
+describe('example mocha test', function mochaTest() {
     this.timeout(timeoutMs);
     let browser: Browser;
     let context: BrowserContext;

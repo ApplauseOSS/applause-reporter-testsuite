@@ -1,7 +1,5 @@
 {
     "scripts": {
-      "build": "npm run build:mocha",
-      "build:mocha": "npm run build --prefix mocha",
       "ci": "npm run ci:mocha",
       "ci:mocha": "npm ci --prefix mocha",
       "install": "npm run install:mocha",

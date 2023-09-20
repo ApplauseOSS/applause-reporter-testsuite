@@ -142,7 +142,13 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-
+    reporters: [
+        [ApplauseWdioReporter as ReporterClass, {
+            apiKey: 'GIVE_ME_A_KEY',
+            productId: 0,
+            stdout: true
+        }]
+    ],
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {

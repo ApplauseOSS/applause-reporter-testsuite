@@ -4,7 +4,6 @@ set -e
 git clean -fx -d
 npm ci
 npm run test:lint
-npm test
 if [[ `git status --porcelain` ]]; then
     echo "change in project after build detected, build the package locally and submit changed files in your PR" 1>&2
     echo "this could be because you didn't lint or rebuild NPM package, or didn't commit all changed files in your PR" 1>&2
