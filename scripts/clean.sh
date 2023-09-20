@@ -1,12 +1,4 @@
-rm -rf playwright/mocha/dist
-rm -rf playwright/mocha/logs
-rm -rf playwright/mocha/node_modules
-rm -rf playwright/mocha/package-lock.json
-rm -rf selenium/mocha/dist
-rm -rf selenium/mocha/logs
-rm -rf selenium/mocha/node_modules
-rm -rf selenium/mocha/package-lock.json
-rm -rf selenium/webdriverio/dist
-rm -rf selenium/webdriverio/logs
-rm -rf selenium/webdriverio/node_modules
-rm -rf selenium/webdriverio/package-lock.json
+rm -rf **/dist
+rm -rf **/logs
+rm -rf **/package-lock.json
+rm -rf **/node_modules

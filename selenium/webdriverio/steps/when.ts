@@ -1,21 +1,21 @@
 import { When } from '@cucumber/cucumber';
 
-import clearInputField from '../support/action/clearInputField';
-import clickElement from '../support/action/clickElement';
-import closeLastOpenedWindow from '../support/action/closeLastOpenedWindow';
-import deleteCookies from '../support/action/deleteCookies';
-import dragElement from '../support/action/dragElement';
-import focusLastOpenedWindow from '../support/action/focusLastOpenedWindow';
-import handleModal from '../support/action/handleModal';
-import moveTo from '../support/action/moveTo';
-import pause from '../support/action/pause';
-import pressButton from '../support/action/pressButton';
-import scroll from '../support/action/scroll';
-import selectOption from '../support/action/selectOption';
-import selectOptionByIndex from '../support/action/selectOptionByIndex';
-import setCookie from '../support/action/setCookie';
-import setInputField from '../support/action/setInputField';
-import setPromptText from '../support/action/setPromptText';
+import clearInputField from '../support/action/clearInputField.ts';
+import clickElement from '../support/action/clickElement.ts';
+import closeLastOpenedWindow from '../support/action/closeLastOpenedWindow.ts';
+import deleteCookies from '../support/action/deleteCookies.ts';
+import dragElement from '../support/action/dragElement.ts';
+import focusLastOpenedWindow from '../support/action/focusLastOpenedWindow.ts';
+import handleModal from '../support/action/handleModal.ts';
+import moveTo from '../support/action/moveTo.ts';
+import pause from '../support/action/pause.ts';
+import pressButton from '../support/action/pressButton.ts';
+import scroll from '../support/action/scroll.ts';
+import selectOption from '../support/action/selectOption.ts';
+import selectOptionByIndex from '../support/action/selectOptionByIndex.ts';
+import setCookie from '../support/action/setCookie.ts';
+import setInputField from '../support/action/setInputField.ts';
+import setPromptText from '../support/action/setPromptText.ts';
 
 When(
     /^I (click|doubleclick) on the (link|button|element) "([^"]*)?"$/,

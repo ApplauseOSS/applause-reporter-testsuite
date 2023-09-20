@@ -1,6 +1,6 @@
 import type { Selector } from 'webdriverio';
 
-import checkIfElementExists from '../lib/checkIfElementExists';
+import checkIfElementExists from '../lib/checkIfElementExists.ts';
 
 /**
  * Check if the given element exists

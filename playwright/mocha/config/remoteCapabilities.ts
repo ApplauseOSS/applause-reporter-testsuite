@@ -27,13 +27,9 @@ export interface BrowserStackCapabilities {
     'client.playwrightVersion': string;
 }
 
-export interface ApplauseOptions {
+export interface DatatapCapabilities {
     apiKey: string;
     providerUrl: string;
-}
-
-export interface DatatapCapabilities {
-    'applause:options': ApplauseOptions;
 }
 
 export type Capabilities = BaseCapabilities & BrowserStackCapabilities;

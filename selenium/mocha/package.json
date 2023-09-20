@@ -2,29 +2,29 @@
     "name": "selenium-mocha",
     "version": "1.0.0",
     "description": "Boilerplate project to run playwright tests and report to the applause automation services",
+    "type": "module",
     "scripts": {
-        "build": "tsc",
-        "test": "npm run build && mocha dist",
-        "test:reporting": "npm run build && mocha dist --reporter ./node_modules/mocha-applause-reporter/dist/index.js",
+        "test": "mocha --config=.mocharc.json",
+        "test:reporting": "mocha --config=.mocharc.reporter.json",
         "test:lint": "eslint 'test/**/*.ts' --fix"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^4.19.0",
-        "@typescript-eslint/parser": "^4.19.0",
-        "chromedriver": "^93.0.0",
-        "eslint": "^7.22.0",
-        "eslint-config-airbnb-base": "^14.1.0",
-        "eslint-plugin-import": "^2.20.2",
-        "eslint-plugin-mocha": "^6.0.8",
-        "http-server": "^0.12.1",
+        "@typescript-eslint/eslint-plugin": "^6.7.0",
+        "@typescript-eslint/parser": "^6.7.0",
+        "chromedriver": "^116.0.0",
+        "eslint": "^8.49.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.28.1",
+        "eslint-plugin-mocha": "^10.1.0",
+        "http-server": "^14.1.1",
         "npm-run-all": "^4.1.5",
-        "ts-node": "^9.1.1",
-        "typescript": "^4.2.3"
+        "ts-node": "^10.9.1",
+        "typescript": "^5.2.2"
     },
     "dependencies": {
-        "@types/chai": "^4.3.4",
+        "@types/chai": "^4.3.6",
         "@types/mocha": "^10.0.1",
-        "chai": "^4.3.7",
+        "chai": "^4.3.8",
         "mocha": "^10.2.0",
         "mocha-applause-reporter": "github:ApplauseOSS/mocha-applause-reporter"
     }

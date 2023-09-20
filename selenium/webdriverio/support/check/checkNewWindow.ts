@@ -1,10 +1,9 @@
 /**
  * Check if a new window or tab is opened
- * @param  {String}   obsolete  The type of opened object (window or tab)
  * @param  {String}   falseCase Whether to check if a new window/tab was opened
  *                              or not
  */
-export default async (obsolete: never, falseCase: boolean) => {
+export default async (falseCase: boolean) => {
     /**
      * The handles of all open windows/tabs
      * @type {Object}

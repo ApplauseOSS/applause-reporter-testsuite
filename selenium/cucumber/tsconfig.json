@@ -3,20 +3,18 @@
   "ts-node": {
     "transpileOnly": true,
     "compilerOptions": {
-      "module": "Node16",
+      "module": "ESNext",
       "sourceMap": true,
     },
     "include": [
       "test/**/*"
-    ]
+    ],
   },
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,
     "declarationDir": "types",
     "forceConsistentCasingInFileNames": true,
-    "module": "Node16",
-    "moduleResolution": "Node16",
     "strictNullChecks": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
@@ -27,13 +25,19 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "pretty": true,
-    "resolveJsonModule": true
+    "moduleResolution": "Node",
+    "module": "es2022",
+    "target": "es2021",
   },
   "include": [
     "@types/**/*",
     "src/**/*",
-    "test/**/*"
+    "test/**/*",
   ],
   "exclude": [
     "node_modules"

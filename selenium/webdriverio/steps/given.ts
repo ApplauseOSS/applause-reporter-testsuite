@@ -1,25 +1,25 @@
 import { Given } from '@cucumber/cucumber';
 
-import checkContainsAnyText from '../support/check/checkContainsAnyText';
-import checkIsEmpty from '../support/check/checkIsEmpty';
-import checkContainsText from '../support/check/checkContainsText';
-import checkCookieContent from '../support/check/checkCookieContent';
-import checkCookieExists from '../support/check/checkCookieExists';
-import checkDimension from '../support/check/checkDimension';
-import checkElementExists from '../support/check/checkElementExists';
-import checkEqualsText from '../support/check/checkEqualsText';
-import checkModal from '../support/check/checkModal';
-import checkOffset from '../support/check/checkOffset';
-import checkProperty from '../support/check/checkProperty';
-import checkSelected from '../support/check/checkSelected';
-import checkTitle from '../support/check/checkTitle';
-import checkUrl from '../support/check/checkURL';
-import closeAllButFirstTab from '../support/action/closeAllButFirstTab';
-import compareText from '../support/check/compareText';
-import isEnabled from '../support/check/isEnabled';
-import isDisplayed from '../support/check/isDisplayed';
-import openWebsite from '../support/action/openWebsite';
-import setWindowSize from '../support/action/setWindowSize';
+import checkContainsAnyText from '../support/check/checkContainsAnyText.ts';
+import checkIsEmpty from '../support/check/checkIsEmpty.ts';
+import checkContainsText from '../support/check/checkContainsText.ts';
+import checkCookieContent from '../support/check/checkCookieContent.ts';
+import checkCookieExists from '../support/check/checkCookieExists.ts';
+import checkDimension from '../support/check/checkDimension.ts';
+import checkElementExists from '../support/check/checkElementExists.ts';
+import checkEqualsText from '../support/check/checkEqualsText.ts';
+import checkModal from '../support/check/checkModal.ts';
+import checkOffset from '../support/check/checkOffset.ts';
+import checkProperty from '../support/check/checkProperty.ts';
+import checkSelected from '../support/check/checkSelected.ts';
+import checkTitle from '../support/check/checkTitle.ts';
+import checkUrl from '../support/check/checkURL.ts';
+import closeAllButFirstTab from '../support/action/closeAllButFirstTab.ts';
+import compareText from '../support/check/compareText.ts';
+import isEnabled from '../support/check/isEnabled.ts';
+import isDisplayed from '../support/check/isDisplayed.ts';
+import openWebsite from '../support/action/openWebsite.ts';
+import setWindowSize from '../support/action/setWindowSize.ts';
 
 Given(
     /^I open the (url|site) "([^"]*)?"$/,
