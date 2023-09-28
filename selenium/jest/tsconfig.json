@@ -28,7 +28,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "pretty": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": [ "jest", "./node_modules/jest-applause-reporter/@types/global.d.ts"]
   },
   "include": [
     "@types/**/*",

@@ -8,7 +8,6 @@ import dragElement from '../support/action/dragElement.ts';
 import focusLastOpenedWindow from '../support/action/focusLastOpenedWindow.ts';
 import handleModal from '../support/action/handleModal.ts';
 import moveTo from '../support/action/moveTo.ts';
-import pause from '../support/action/pause.ts';
 import pressButton from '../support/action/pressButton.ts';
 import scroll from '../support/action/scroll.ts';
 import selectOption from '../support/action/selectOption.ts';
@@ -35,11 +34,6 @@ When(
 When(
     /^I drag element "([^"]*)?" to element "([^"]*)?"$/,
     dragElement
-);
-
-When(
-    /^I pause for (\d+)ms$/,
-    pause
 );
 
 When(

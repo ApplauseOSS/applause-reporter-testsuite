@@ -2,10 +2,11 @@
   "type": "module",
   "scripts": {
     "test": "TS_NODE_PROJECT=./tsconfig.json TS_NODE_TYPE_CHECK=true wdio run wdio.conf.ts",
-    "test:reporting": "TS_NODE_PROJECT=./tsconfig.json TS_NODE_TYPE_CHECK=true wdio run wdio.reporting.conf.ts",
+    "test:reporting": "TS_NODE_PROJECT=./tsconfig.json TS_NODE_TYPE_CHECK=true wdio run wdio.reporter.conf.ts",
     "test:lint": "eslint 'steps/**/*.ts' 'support/**/*.ts'"
   },
   "devDependencies": {
+    "@tsconfig/node20": "^20.1.2",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "@wdio/cli": "^8.16.10",
@@ -16,6 +17,7 @@
     "@wdio/spec-reporter": "^8.16.9",
     "@wdio/static-server-service": "^8.16.7",
     "@wdio/types": "^8.16.7",
+    "applause-reporter-common": "github:ApplauseOSS/applause-reporter-common#master",
     "chromedriver": "^116.0.0",
     "eslint": "^8.49.0",
     "eslint-config-airbnb-base": "^15.0.0",

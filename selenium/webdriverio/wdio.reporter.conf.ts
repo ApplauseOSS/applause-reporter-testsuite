@@ -1,14 +1,14 @@
 import path from 'path';
 import { hooks } from './support/hooks.ts';
-import type { Options } from '@wdio/types';
-import { RemoteCapability } from '@wdio/types/build/Capabilities';
+import type { Options, Capabilities, Reporters } from '@wdio/types';
 import { ApplauseWdioReporter } from 'wdio-applause-reporter';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { ReporterClass } from '@wdio/types/build/Reporters';
+import { loadConfig } from 'applause-reporter-common';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const APPLAUSE_CONFIG = loadConfig();
 
 export const config: Options.Testrunner = {
     //
@@ -17,8 +17,15 @@ export const config: Options.Testrunner = {
     // ====================
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
-    runner: 'local',
-
+    protocol: 'https',
+    hostname: 'integration-auto-proxy-new.devcloud.applause.com',
+    port: 443,
+    path: '/wd/hub/',
+    user: 'ApplauseKey',
+    key: APPLAUSE_CONFIG.apiKey,
+    headers: {
+        'Accept': 'application/json; charset=utf-8'
+    },
     //
     // ==================
     // Specify Test Files
@@ -61,19 +68,18 @@ export const config: Options.Testrunner = {
         browserName: 'chrome',
         browserVersion: 'latest',
         platformName: 'Windows 11',
-        'sauce:options': {},
-        // 'applause:options': {
-        //     apiKey: 'GIVE_ME_A_KEY',
-        //     productId: 0,
-        //     provider: 'SauceLabs US West'
-        // }
+        'applause:options': {
+            apiKey: APPLAUSE_CONFIG.apiKey,
+            productId: APPLAUSE_CONFIG.productId,
+            provider: 'BrowserStack'
+        }
                 
 
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-    } as RemoteCapability],
+    } as Capabilities.RemoteCapability],
     //
     // ===================
     // Test Configurations
@@ -143,9 +149,9 @@ export const config: Options.Testrunner = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
     reporters: [
-        [ApplauseWdioReporter as ReporterClass, {
-            apiKey: 'GIVE_ME_A_KEY',
-            productId: 0,
+        [ApplauseWdioReporter as Reporters.ReporterClass, {
+            apiKey: APPLAUSE_CONFIG.apiKey,
+            productId: APPLAUSE_CONFIG.productId,
             stdout: true
         }]
     ],

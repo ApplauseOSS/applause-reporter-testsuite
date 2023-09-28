@@ -1,10 +1,55 @@
-import { Given, IWorld, Then, When } from '@cucumber/cucumber';
+import {
+  Given,
+  IWorld,
+  Then,
+  When,
+  Before,
+  setDefaultTimeout,
+  After,
+} from '@cucumber/cucumber';
 import assert from 'assert';
+import { loadConfig } from 'applause-reporter-common';
+import { APPLAUSE_SESSION_ID_ATTACHMENT } from 'cucumber-applause-reporter';
+import { Builder, Capabilities, WebDriver } from 'selenium-webdriver';
+
+const API_KEY = loadConfig().apiKey;
+const PRODUCT_ID = loadConfig().productId;
 
 interface CustomWorld extends IWorld {
+  driver: WebDriver;
   today: string;
   target: string;
 }
+
+setDefaultTimeout(60000);
+
+Before(async function (this: CustomWorld) {
+  this.driver = await new Builder()
+    .usingServer(
+      `https://ApplauseKey:${API_KEY}@integration-auto-proxy-new.devcloud.applause.com:443/wd/hub`
+    )
+    .withCapabilities(
+      new Capabilities({
+        browserName: 'chrome',
+        'applause:options': {
+          apiKey: API_KEY,
+          provider: 'BrowserStack',
+          productId: PRODUCT_ID,
+          runName: 'RC Test',
+        },
+      })
+    )
+    .build();
+  const myId = (await this.driver.getSession()).getId();
+  this.attach(myId, {
+    fileName: APPLAUSE_SESSION_ID_ATTACHMENT,
+    mediaType: 'text/plain',
+  });
+});
+
+After(async function (this: CustomWorld) {
+  await this.driver.quit();
+});
 
 function dayToNumber(day: string): number {
   switch (day.toUpperCase()) {
