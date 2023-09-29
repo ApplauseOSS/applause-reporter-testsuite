@@ -1,5 +1,6 @@
 {
-    "apiKey": "GIVE_ME_A_KEY",
+    "baseUrl": "APPLAUSE_AUTOMATION_API_URL",
+    "apiKey": "API_KEY",
     "productId": 0,
     "testRail": {
         "projectId": 0,

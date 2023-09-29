@@ -11,6 +11,7 @@
     "install:mocha": "npm install --prefix mocha",
     "install:wdio": "npm install --prefix webdriverio",
     "test": "npm run test:wdio && npm run test:mocha && npm run test:jest && npm run test:cucumber",
+    "test:reporting": "npm run test:wdio:reporting && npm run test:mocha:reporting && npm run test:jest:reporting && npm run test:cucumber:reporting",
     "test:cucumber": "npm test --prefix cucumber",
     "test:cucumber:reporting": "npm run test:reporting --prefix cucumber",
     "test:jest": "npm test --prefix jest",
