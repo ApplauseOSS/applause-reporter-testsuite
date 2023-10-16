@@ -1,7 +1,7 @@
 import { Capabilities, DatatapCapabilities } from './remoteCapabilities';
 
 const browserStackBaseUrl = 'wss://cdp.browserstack.com/playwright';
-const datatapBaseUrl = 'wss://prod-datatap.clound.applause.com/playwright';
+const datatapBaseUrl = 'wss://prod-datatap.cloud.applause.com/playwright';
 
 export function buildUrl(baseUrl: string, caps: Capabilities | DatatapCapabilities): string {
     return `${baseUrl}?caps=${encodeURIComponent(JSON.stringify(caps))}`;

@@ -2,7 +2,7 @@
     "baseUrl": "APPLAUSE_AUTOMATION_API_URL",
     "apiKey": "API_KEY",
     "productId": 0,
-    "testRail": {
+    "testRailOptions": {
         "projectId": 0,
         "suiteId": 0,
         "planName": "Example Plan Name",
