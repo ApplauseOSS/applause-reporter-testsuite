@@ -189,7 +189,7 @@ export const config: Options.Testrunner = {
             // works since version 1.1 of the wdio-cucumber-framework
             // './src/**/*.js',
         ],
-        scenarioLevelReporter: false,
+        scenarioLevelReporter: true,
         order: 'defined',
         // <string> specify a custom snippet syntax
         snippetSyntax: undefined,
