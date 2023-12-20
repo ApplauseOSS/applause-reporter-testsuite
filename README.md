@@ -3,6 +3,14 @@
 
 Boilerplate project to show examples of integrating our Applause Reporter plugins with various frameworks.
 
+## General configuration
+
+Applause provides default configuration file in most cases.  
+
+For Applause custom options, the default configuration utilizes `applause.json`, which must be modified to include your unique values.
+
+Once `applause.json` is filled, run script `./scripts/copy-reporter-json.sh` to copy the configurations to the defined runner locations.
+
 ## Supported Test Runners
 
 ### WebDriverIO Runner
@@ -60,35 +68,35 @@ query after doing a search. As you can see, it is pretty simple and understandab
 
 ## How to run the tests
 
-Start the local web server, the you can run
+Start the local web server, then you can run
 
 ```sh
-npm run test:wdio
+npm run test:selenium:wdio
 ```
 
-*please note* The WDIO runner uses the configuration file `wdio.conf.js` by default.
+*please note* The WDIO runner uses the configuration file `wdio.conf.ts` by default.
 
 ## Configurations
 
-To configure your tests, checkout the [`wdio.conf.js`](https://github.com/webdriverio/cucumber-boilerplate/blob/main/wdio.conf.js) file in your test directory. It comes with a bunch of documented options you can choose from.
+To configure your tests, checkout the [`wdio.conf.ts`](https://github.com/webdriverio/cucumber-boilerplate/blob/main/wdio.conf.ts) file in your test directory. It comes with a bunch of documented options you can choose from.
 
 ### Environment-specific configurations
 
 You can setup multiple configs for specific environments. Let's say you want to have a different `baseUrl` for
-your local and pre-deploy tests. Use the `wdio.conf.js` to set all general configs (like mochaOpts) that don't change.
+your local and pre-deploy tests. Use the `**wdio.conf.ts**` to set all general configs (like mochaOpts) that don't change.
 They act as default values. For each different environment you can create a new config with the following name
 scheme:
 
 ```txt
-wdio.<ENVIRONMENT>.conf.js
+wdio.<ENVIRONMENT>.conf.ts
 ```
 
 Now you can create a specific config for your pre-deploy tests:
 
-#### wdio.STAGING.conf.js
+#### wdio.STAGING.conf.ts
 
 ```js
-var config = require('./wdio.conf.js').config;
+var config = require('./wdio.conf.ts').config;
 
 config.baseUrl = 'http://staging.example.com'
 
@@ -99,7 +107,7 @@ Your environment-specific config file will get merged into the default config fi
 To run a test in a specific environment just add the desired configuration file as the first parameter:
 
 ```sh
-yarn run wdio wdio.STAGING.conf.js
+yarn run wdio wdio.STAGING.conf.ts
 ```
 
 ## Running single feature
@@ -107,7 +115,7 @@ yarn run wdio wdio.STAGING.conf.js
 Sometimes it's useful to only execute a single feature file, to do so use the following command:
 
 ```sh
-npx wdio wdio.conf.js --spec ./test/features/select.feature
+npx wdio wdio.conf.ts --spec ./test/features/select.feature
 ```
 
 ## Using tags
@@ -122,7 +130,7 @@ Feature: ...
 To run only the tests with specific tag(s) use the `--cucumberOpts.tagExpression=` parameter like so:
 
 ```sh
-npx wdio wdio.conf.js --cucumberOpts.tagExpression='@Tag or @AnotherTag'
+npx wdio wdio.conf.ts --cucumberOpts.tagExpression='@Tag or @AnotherTag'
 ```
 
 For more tag options please see the [Cucumber.js documentation](https://docs.cucumber.io/tag-expressions/)
