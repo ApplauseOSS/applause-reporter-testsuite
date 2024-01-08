@@ -1,11 +1,10 @@
 import path from 'path';
-import { hooks } from './support/hooks.ts';
 import type { Capabilities, Options } from '@wdio/types';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { loadConfig } from 'applause-reporter-common';
-const APPLAUSE_CONFIG = loadConfig();
 
+const APPLAUSE_CONFIG = loadConfig();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,7 +23,7 @@ export const config: Options.Testrunner = {
     user: 'ApplauseKey',
     key: APPLAUSE_CONFIG.apiKey,
     headers: {
-        'Accept': 'application/json; charset=utf-8'
+        Accept: 'application/json; charset=utf-8',
     },
     //
     // ==================
@@ -36,7 +35,7 @@ export const config: Options.Testrunner = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './features/**/*.feature',
+        './test/**',
     ],
     // Patterns to exclude.
     exclude: [
@@ -71,9 +70,8 @@ export const config: Options.Testrunner = {
         'applause:options': {
             apiKey: APPLAUSE_CONFIG.apiKey,
             productId: APPLAUSE_CONFIG.productId,
-            provider: 'BrowserStack'
-        }
-                
+            provider: 'BrowserStack',
+        },
 
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -137,7 +135,7 @@ export const config: Options.Testrunner = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'cucumber',
+    framework: 'mocha',
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -148,55 +146,4 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-
-    //
-    // If you are using Cucumber you need to specify the location of your step definitions.
-    cucumberOpts: {
-        // <boolean> show full backtrace for errors
-        backtrace: false,
-        // <string[]> module used for processing required features
-        requireModule: [],
-        // <boolean< Treat ambiguous definitions as errors
-        failAmbiguousDefinitions: true,
-        // <boolean> invoke formatters without executing steps
-        // dryRun: false,
-        // <boolean> abort the run on first failure
-        failFast: false,
-        // <boolean> Enable this config to treat undefined definitions as
-        // warnings
-        ignoreUndefinedDefinitions: false,
-        // <string[]> ("extension:module") require files with the given
-        // EXTENSION after requiring MODULE (repeatable)
-        names: [],
-        // <boolean> hide step definition snippets for pending steps
-        snippets: true,
-        // <boolean> hide source uris
-        source: true,
-        // <string[]> (name) specify the profile to use
-        profile: [],
-        // <string[]> (file/dir) require files before executing features
-        require: [
-            './steps/given.ts',
-            './steps/then.ts',
-            './steps/when.ts',
-            // Or search a (sub)folder for JS files with a wildcard
-            // works since version 1.1 of the wdio-cucumber-framework
-            // './src/**/*.js',
-        ],
-        scenarioLevelReporter: true,
-        order: 'defined',
-        // <string> specify a custom snippet syntax
-        snippetSyntax: undefined,
-        // <boolean> fail if there are any undefined or pending steps
-        strict: true,
-        // <string> (expression) only execute the features or scenarios with
-        // tags matching the expression, see
-        // https://docs.cucumber.io/tag-expressions/
-        tagExpression: 'not @Pending',
-        // <boolean> add cucumber tags to feature or scenario name
-        tagsInTitle: false,
-        // <number> timeout for step definitions
-        timeout: 20000,
-    } as WebdriverIO.CucumberOpts,
-    ...hooks,
 };

@@ -10,8 +10,7 @@ import checkDimension from '../support/check/checkDimension.ts';
 import checkEqualsText from '../support/check/checkEqualsText.ts';
 import checkFocus from '../support/check/checkFocus.ts';
 import checkInURLPath from '../support/check/checkInURLPath.ts';
-import checkIsOpenedInNewWindow from
-    '../support/check/checkIsOpenedInNewWindow.ts';
+import checkIsOpenedInNewWindow from '../support/check/checkIsOpenedInNewWindow.ts';
 import checkModal from '../support/check/checkModal.ts';
 import checkModalText from '../support/check/checkModalText.ts';
 import checkNewWindow from '../support/check/checkNewWindow.ts';

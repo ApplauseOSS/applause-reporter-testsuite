@@ -9,7 +9,9 @@
     "install:cucumber": "npm install --prefix cucumber",
     "install:jest": "npm install --prefix jest",
     "install:mocha": "npm install --prefix mocha",
-    "install:wdio": "npm install --prefix webdriverio",
+    "install:wdio": "npm run install:wdio:cucumber && npm run install:wdio:mocha",
+    "install:wdio:cucumber": "npm install --prefix webdriverio/cucumber",
+    "install:wdio:mocha": "npm install --prefix webdriverio/mocha",
     "test": "npm run test:wdio && npm run test:mocha && npm run test:jest && npm run test:cucumber",
     "test:reporting": "npm run test:wdio:reporting && npm run test:mocha:reporting && npm run test:jest:reporting && npm run test:cucumber:reporting",
     "test:cucumber": "npm test --prefix cucumber",
@@ -18,12 +20,18 @@
     "test:jest:reporting": "npm run test:reporting --prefix jest",
     "test:mocha": "npm test --prefix mocha",
     "test:mocha:reporting": "npm run test:reporting --prefix mocha",
-    "test:wdio": "npm test --prefix webdriverio",
-    "test:wdio:reporting": "npm run test:reporting --prefix webdriverio",
+    "test:wdio": "npm run test:wdio:cucumber && npm run test:wdio:mocha",
+    "test:wdio:reporting": "npm run test:wdio:cucumber:reporting && npm run test:wdio:mocha:reporting",
+    "test:wdio:cucumber": "npm test --prefix webdriverio/cucumber",
+    "test:wdio:cucumber:reporting": "npm run test:reporting --prefix webdriverio/cucumber",
+    "test:wdio:mocha": "npm test --prefix webdriverio/mocha",
+    "test:wdio:mocha:reporting": "npm run test:reporting --prefix webdriverio/mocha",
     "test:lint": "npm run test:lint:wdio && npm run test:lint:mocha && npm run test:lint:cucumber",
     "test:lint:cucumber": "npm run test:lint --prefix cucumber",
     "test:lint:jest": "npm run test:lint --prefix jest",
     "test:lint:mocha": "npm run test:lint --prefix mocha",
-    "test:lint:wdio": "npm run test:lint --prefix webdriverio"
+    "test:lint:wdio": "npm run test:lint:cucumber && npm run test:lint:mocha",
+    "test:lint:wdio:cucumber": "npm run test:lint --prefix webdriverio/cucumber",
+    "test:lint:wdio:mocha": "npm run test:lint --prefix webdriverio/mocha"
   }
 }
