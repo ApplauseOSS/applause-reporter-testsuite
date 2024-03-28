@@ -19,7 +19,7 @@
     "@wdio/static-server-service": "^8.16.7",
     "@wdio/types": "^8.16.7",
     "applause-reporter-common": "github:ApplauseOSS/applause-reporter-common#master",
-    "chromedriver": "^116.0.0",
+    "chromedriver": "^119.0.1",
     "eslint": "^8.49.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.28.1",
