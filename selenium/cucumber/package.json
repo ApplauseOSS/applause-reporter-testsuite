@@ -12,7 +12,7 @@
     "@types/selenium-webdriver": "^4.1.17",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
-    "applause-reporter-common": "github:ApplauseOSS/applause-reporter-common#master",
+    "applause-reporter-common": "github:ApplauseOSS/applause-reporter-common#v1.0.0",
     "cross-env": "^7.0.3",
     "cucumber-applause-reporter": "github:ApplauseOSS/cucumber-applause-reporter#main",
     "eslint": "^8.49.0",
