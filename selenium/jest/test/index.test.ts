@@ -1,4 +1,4 @@
-import { Builder, Capabilities, WebDriver } from "selenium-webdriver";
+import { Builder, Capabilities, WebDriver } from 'selenium-webdriver';
 import { loadConfig } from 'applause-reporter-common'
 
 const API_KEY = loadConfig().apiKey;
