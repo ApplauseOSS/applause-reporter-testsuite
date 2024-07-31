@@ -23,7 +23,7 @@
     "emitDeclarationOnly": true,
     "allowImportingTsExtensions": true,
     "pretty": true,
-    "types": ["node", "@wdio/globals/types", "@wdio/jasmine-framework", ],
+    "types": ["node", "@wdio/globals/types", "@wdio/jasmine-framework", "jasmine"],
   },
   "include": [
     "wdio.*.ts",
