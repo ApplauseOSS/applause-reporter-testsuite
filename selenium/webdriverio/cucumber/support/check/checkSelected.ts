@@ -15,11 +15,11 @@ export default async (selector: Selector, falseCase: boolean) => {
 
     if (falseCase) {
         expect(isSelected)
-            // @ts-expect-error
+            // @ts-expect-error unknown
             .not.toEqual(true, `"${selector}" should not be selected`);
     } else {
         expect(isSelected)
-            // @ts-expect-error
+            // @ts-expect-error unknown
             .toEqual(true, `"${selector}" should be selected`);
     }
 };

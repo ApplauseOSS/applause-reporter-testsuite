@@ -1,6 +1,6 @@
 import path from 'path';
-import type { Options, Capabilities, Reporters } from '@wdio/types';
-import { ApplauseWdioReporter } from 'wdio-applause-reporter';
+import type { Options } from '@wdio/types';
+import { ApplauseResultService, ApplauseRunService } from 'wdio-applause-reporter';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { loadConfig } from 'applause-reporter-common';
@@ -77,7 +77,7 @@ export const config: Options.Testrunner = {
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-    } as Capabilities.RemoteCapability],
+    }],
     //
     // ===================
     // Test Configurations
@@ -127,7 +127,7 @@ export const config: Options.Testrunner = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],
+    services: [[ApplauseResultService, {}], [ApplauseRunService, {}]],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -146,11 +146,4 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: [
-        [ApplauseWdioReporter as Reporters.ReporterClass, {
-            apiKey: APPLAUSE_CONFIG.apiKey,
-            productId: APPLAUSE_CONFIG.productId,
-            stdout: true,
-        }],
-    ],
 };

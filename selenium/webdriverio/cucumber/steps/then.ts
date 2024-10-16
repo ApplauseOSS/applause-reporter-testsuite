@@ -30,6 +30,10 @@ import isVisible from '../support/check/isDisplayed.ts';
 import waitFor from '../support/action/waitFor.ts';
 import waitForVisible from '../support/action/waitForDisplayed.ts';
 import checkIfElementExists from '../support/lib/checkIfElementExists.ts';
+import { constructDefaultLogger } from 'applause-reporter-common';
+
+
+export const logger = constructDefaultLogger();
 
 Then(
     /^I expect that the title is( not)* "([^"]*)?"$/,
@@ -190,3 +194,10 @@ Then(
     /^I expect that a (alertbox|confirmbox|prompt)( not)* contains the text "([^"]*)?"$/,
     checkModalText
 );
+Then(
+    'I take a screenshot',
+    async () => {
+        logger.info("Hello");
+        await browser.saveScreenshot("./test-png.png");
+    }
+)

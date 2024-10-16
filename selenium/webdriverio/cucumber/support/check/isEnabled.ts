@@ -16,13 +16,13 @@ export default async (selector: Selector, falseCase: boolean) => {
     if (falseCase) {
         expect(isEnabled).not.toEqual(
             true,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected element "${selector}" not to be enabled`
         );
     } else {
         expect(isEnabled).toEqual(
             true,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected element "${selector}" to be enabled`
         );
     }

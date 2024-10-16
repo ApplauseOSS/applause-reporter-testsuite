@@ -20,19 +20,19 @@ export default async (
         if (falseState) {
             expect(text).not.toEqual(
                 expectedText,
-                // @ts-expect-error
+                // @ts-expect-error unknown
                 `Expected the text of ${modalType} not to equal `
                 + `"${expectedText}"`
             );
         } else {
             expect(text).toEqual(
                 expectedText,
-                // @ts-expect-error
+                // @ts-expect-error unknown
                 `Expected the text of ${modalType} to equal `
                 + `"${expectedText}", instead found "${text}"`
             );
         }
-    } catch (e) {
+    } catch {
         throw new Error(`A ${modalType} was not opened when it should have been opened`);
     }
 };

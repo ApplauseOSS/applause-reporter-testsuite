@@ -2,9 +2,9 @@
  * Check if the given URL was opened in a new window
  * @param  {String}   expectedUrl The URL to check for
  */
-/* eslint-disable no-unused-vars */
+ 
 export default async (expectedUrl: string) => {
-/* eslint-enable no-unused-vars */
+ 
     /**
      * All the current window handles
      * @type {Object}
@@ -13,7 +13,7 @@ export default async (expectedUrl: string) => {
 
     expect(windowHandles).not.toHaveLength(
         1,
-        // @ts-expect-error
+        // @ts-expect-error unknown
         'A popup was not opened'
     );
 
@@ -34,7 +34,7 @@ export default async (expectedUrl: string) => {
 
     expect(windowUrl).toContain(
         expectedUrl,
-        // @ts-expect-error
+        // @ts-expect-error unknown
         'The popup has a incorrect getUrl'
     );
 

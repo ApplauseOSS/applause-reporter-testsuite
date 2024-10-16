@@ -1,6 +1,6 @@
 import { Browser, chromium } from 'playwright';
-import { Capabilities } from './remoteCapabilities';
-import { buildBrowserStackUrl, buildDatatapUrl } from './remoteUrlBuilder';
+import { Capabilities } from './remoteCapabilities.mjs';
+import { buildBrowserStackUrl, buildDatatapUrl } from './remoteUrlBuilder.mts';
 
 const DEFAULT_TIMEOUT = 60_000;
 

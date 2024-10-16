@@ -14,14 +14,14 @@ export default async (falseCase: boolean, expectedUrlPart: string) => {
     if (falseCase) {
         expect(currentUrl).not.toContain(
             expectedUrlPart,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected URL "${currentUrl}" not to contain `
             + `"${expectedUrlPart}"`
         );
     } else {
         expect(currentUrl).toContain(
             expectedUrlPart,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected URL "${currentUrl}" to contain "${expectedUrlPart}"`
         );
     }

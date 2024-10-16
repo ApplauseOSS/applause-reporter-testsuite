@@ -14,13 +14,13 @@ export default async (falseCase: boolean, expectedTitle: string) => {
     if (falseCase) {
         expect(title).not.toEqual(
             expectedTitle,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected title not to be "${expectedTitle}"`
         );
     } else {
         expect(title).toEqual(
             expectedTitle,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected title to be "${expectedTitle}" but found "${title}"`
         );
     }

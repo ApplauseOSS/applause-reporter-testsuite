@@ -35,7 +35,7 @@ export default async (
      */
     let attributeValue = await $(selector)[command](attrName);
 
-    // eslint-disable-next-line
+     
     expectedValue = isFinite(expectedValue as number) ?
         parseFloat(expectedValue as string)
         : expectedValue;
@@ -45,21 +45,21 @@ export default async (
      * object but we want to assert against a string
      */
     if (attrName.match(/(color|font-weight)/)) {
-        // @ts-expect-error
+        // @ts-expect-error unknown
         attributeValue = attributeValue.value;
     }
 
     if (falseCase) {
         expect(attributeValue).not.toEqual(
             expectedValue,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `${attrType}: ${attrName} of element "${selector}" should `
             + `not contain "${attributeValue}"`
         );
     } else {
         expect(attributeValue).toEqual(
             expectedValue,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `${attrType}: ${attrName} of element "${selector}" should `
             + `contain "${attributeValue}", but "${expectedValue}"`
         );

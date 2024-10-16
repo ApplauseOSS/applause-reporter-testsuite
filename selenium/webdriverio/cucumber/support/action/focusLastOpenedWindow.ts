@@ -1,9 +1,9 @@
 /**
  * Focus the last opened window
  */
-/* eslint-disable no-unused-vars */
+ 
 export default async () => {
-/* eslint-enable no-unused-vars */
+ 
     /**
      * The last opened window
      * @type {Object}

@@ -14,13 +14,13 @@ export default async (name: string, falseCase: boolean) => {
     if (falseCase) {
         expect(cookie).toHaveLength(
             0,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected cookie "${name}" not to exists but it does`
         );
     } else {
         expect(cookie).not.toHaveLength(
             0,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected cookie "${name}" to exists but it does not`
         );
     }

@@ -13,12 +13,12 @@ export default async (falseCase: boolean, expectedUrl: string) => {
 
     if (falseCase) {
         expect(currentUrl)
-            // @ts-expect-error
+            // @ts-expect-error unknown
             .not.toEqual(expectedUrl, `expected url not to be "${currentUrl}"`);
     } else {
         expect(currentUrl).toEqual(
             expectedUrl,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `expected url to be "${expectedUrl}" but found `
             + `"${currentUrl}"`
         );

@@ -1,14 +1,36 @@
 import path from 'path';
 import { hooks } from './support/hooks.ts';
-import type { Options, Capabilities, Reporters } from '@wdio/types';
-import { ApplauseWdioReporter } from 'wdio-applause-reporter';
+import type { Options, Capabilities } from '@wdio/types';
+import { ApplauseResultService, ApplauseRunService } from 'wdio-applause-reporter';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { loadConfig } from 'applause-reporter-common';
+import { ApplauseTransport, loadConfig, WINSTON_DEFAULT_LOG_FORMAT } from 'applause-reporter-common';
+import * as winston from 'winston';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const APPLAUSE_CONFIG = loadConfig();
+
+const customLogger: winston.Logger = winston.createLogger({
+    format: winston.format.combine(
+        winston.format.label({ label: 'Applause Tests' }),
+        winston.format.timestamp(),
+        winston.format.splat(),
+        WINSTON_DEFAULT_LOG_FORMAT
+      ),
+      transports: [
+        new winston.transports.File({ filename: 'error.log', level: 'error' }),
+        new winston.transports.File({ filename: 'combined.log' }),
+        new ApplauseTransport(),
+        new winston.transports.Console({
+          level: 'info',
+          format: winston.format.combine(
+            winston.format.colorize(),
+            WINSTON_DEFAULT_LOG_FORMAT
+          ),
+        }),
+      ],
+})
 
 export const config: Options.Testrunner = {
     //
@@ -116,7 +138,7 @@ export const config: Options.Testrunner = {
     baseUrl: 'https://admin.automation.applause.com',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 100_000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -129,7 +151,7 @@ export const config: Options.Testrunner = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],
+    services: [[ApplauseResultService, { logger: customLogger }], [ApplauseRunService, { logger: customLogger }],],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -148,13 +170,6 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: [
-        [ApplauseWdioReporter as Reporters.ReporterClass, {
-            apiKey: APPLAUSE_CONFIG.apiKey,
-            productId: APPLAUSE_CONFIG.productId,
-            stdout: true
-        }]
-    ],
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
@@ -202,7 +217,7 @@ export const config: Options.Testrunner = {
         // <boolean> add cucumber tags to feature or scenario name
         tagsInTitle: false,
         // <number> timeout for step definitions
-        timeout: 20000,
+        timeout: 200_000,
     } as WebdriverIO.CucumberOpts,
     ...hooks,
 };

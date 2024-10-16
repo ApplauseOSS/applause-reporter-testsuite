@@ -1,4 +1,4 @@
-import { Capabilities, DatatapCapabilities } from './remoteCapabilities';
+import { Capabilities, DatatapCapabilities } from './remoteCapabilities.mts';
 
 const browserStackBaseUrl = 'wss://cdp.browserstack.com/playwright';
 const datatapBaseUrl = 'wss://prod-datatap.cloud.applause.com/playwright';

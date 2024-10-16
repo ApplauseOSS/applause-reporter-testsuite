@@ -17,20 +17,20 @@ export default async (
     const cookie = (await browser.getCookies(name))[0];
     expect(cookie.name).toBe(
         name,
-        // @ts-expect-error
+        // @ts-expect-error unknown
         `no cookie found with the name "${name}"`
     );
 
     if (falseCase) {
         expect(cookie.value).not.toBe(
             expectedValue,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `expected cookie "${name}" not to have value "${expectedValue}"`
         );
     } else {
         expect(cookie.value).toBe(
             expectedValue,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `expected cookie "${name}" to have value "${expectedValue}"`
             + ` but got "${cookie.value}"`
         );

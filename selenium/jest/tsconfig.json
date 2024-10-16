@@ -29,7 +29,7 @@
     "noUnusedParameters": true,
     "pretty": true,
     "resolveJsonModule": true,
-    "types": [ "node", "jest", "./node_modules/jest-applause-reporter/@types/global.d.ts"]
+    "types": [ "node", "jest", "@jest/globals", "./node_modules/jest-applause-reporter/@types/global.d.ts"]
   },
   "include": [
     "@types/**/*",
