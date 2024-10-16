@@ -29,14 +29,14 @@ export default async (
     if (falseCase) {
         expect(location).not.toEqual(
             intExpectedPosition,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Element "${selector}" should not be positioned at `
             + `${intExpectedPosition}px on the ${axis} axis`
         );
     } else {
         expect(location).toEqual(
             intExpectedPosition,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Element "${selector}" should be positioned at `
             + `${intExpectedPosition}px on the ${axis} axis, but was found `
             + `at ${location}px`

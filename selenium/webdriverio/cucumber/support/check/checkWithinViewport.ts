@@ -16,13 +16,13 @@ export default async (selector: Selector, falseCase: boolean) => {
     if (falseCase) {
         expect(isDisplayed).not.toEqual(
             true,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected element "${selector}" to be outside the viewport`
         );
     } else {
         expect(isDisplayed).toEqual(
             true,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected element "${selector}" to be inside the viewport`
         );
     }

@@ -20,15 +20,15 @@ export default async (
         if (falseState) {
             expect(promptText).not.toEqual(
                 null,
-                // @ts-expect-error
+                // @ts-expect-error unknown
                 `A ${modalType} was opened when it shouldn't`
             );
         }
-    } catch (e) {
+    } catch {
         if (!falseState) {
             expect(promptText).toEqual(
                 null,
-                // @ts-expect-error
+                // @ts-expect-error unknown
                 `A ${modalType} was not opened when it should have been`
             );
         }

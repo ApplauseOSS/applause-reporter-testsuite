@@ -6,24 +6,21 @@
     "test:lint": "eslint ./test/ --fix"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^9.5.1",
-    "@tsconfig/node20": "^20.1.2",
-    "@types/node": "^20.6.2",
-    "@types/selenium-webdriver": "^4.1.17",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
-    "applause-reporter-common": "github:ApplauseOSS/applause-reporter-common#v1.0.0",
+    "@cucumber/cucumber": "^11.0.1",
+    "@eslint/js": "^9.12.0",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^22.7.5",
+    "@types/selenium-webdriver": "^4.1.26",
+    "applause-reporter-common": "github:ApplauseOSS/applause-reporter-common#master",
     "cross-env": "^7.0.3",
     "cucumber-applause-reporter": "github:ApplauseOSS/cucumber-applause-reporter#main",
-    "eslint": "^8.49.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint": "^8.57.1",
+    "globals": "^15.11.0",
     "prettier": "^3.0.3",
-    "selenium-webdriver": "^4.13.0",
-    "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.1",
-    "tslib": "^2.6.2",
-    "typescript": "^5.2.2"
+    "selenium-webdriver": "^4.25.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.9.0"
   }
 }

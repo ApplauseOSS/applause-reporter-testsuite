@@ -19,7 +19,7 @@ export default async (
      * The size of the given element
      * @type {Object}
      */
-    // @ts-expect-error
+    // @ts-expect-error unknown
     const elementSize = await $(selector).getSize() as RectReturn;
 
     /**
@@ -48,14 +48,14 @@ export default async (
     if (falseCase) {
         expect(originalSize).not.toBe(
             intExpectedSize,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Element "${selector}" should not have a ${label} of `
             + `${intExpectedSize}px`
         );
     } else {
         expect(originalSize).toBe(
             intExpectedSize,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Element "${selector}" should have a ${label} of `
             + `${intExpectedSize}px, but is ${originalSize}px`
         );

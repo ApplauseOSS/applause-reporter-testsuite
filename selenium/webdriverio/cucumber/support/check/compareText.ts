@@ -27,13 +27,13 @@ export default async (
     if (falseCase) {
         expect(text1).not.toEqual(
             text2,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected text not to be "${text1}"`
         );
     } else {
         expect(text1).toEqual(
             text2,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected text to be "${text1}" but found "${text2}"`
         );
     }

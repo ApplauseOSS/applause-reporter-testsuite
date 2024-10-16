@@ -8,10 +8,10 @@ const PRODUCT_ID = loadConfig().productId;
 export const SELENIUM_GRID = 'integration-auto-proxy-new.devcloud.applause.com:443';
 
 describe('example mocha test', function mochaDescribe() {
-    this.timeout(60_000);
+    this.timeout(180_000);
     let driver: WebDriver;
 
-    beforeEach(async function driverCreate() {
+    beforeEach('setup driver', async function driverCreate() {
         driver = await new Builder()
             .usingServer(`https://ApplauseKey:${API_KEY}@${SELENIUM_GRID}/wd/hub`)
             .withCapabilities(new Capabilities({

@@ -16,13 +16,13 @@ export default async (selector: Selector, falseCase: boolean) => {
     if (falseCase) {
         expect(hasFocus).not.toBe(
             true,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             'Expected element to not be focused, but it is'
         );
     } else {
         expect(hasFocus).toBe(
             true,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             'Expected element to be focused, but it is not'
         );
     }

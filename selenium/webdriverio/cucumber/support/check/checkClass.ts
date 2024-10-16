@@ -27,13 +27,13 @@ export default async (
     if (falseCase === 'does not have') {
         expect(classesList).not.toContain(
             expectedClassName,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Element ${selector} should not have the class ${expectedClassName}`
         );
     } else {
         expect(classesList).toContain(
             expectedClassName,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Element ${selector} should have the class ${expectedClassName}`
         );
     }

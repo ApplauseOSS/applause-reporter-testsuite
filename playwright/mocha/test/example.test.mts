@@ -4,7 +4,7 @@ import {
     BrowserContext,
     Page
 } from 'playwright';
-import { localHeadlessChrome } from '../config/playwrightLauncher';
+import { localHeadlessChrome } from '../config/playwrightLauncher.mts';
 
 const timeoutMs = 10_000;
 describe('example mocha test', function mochaTest() {

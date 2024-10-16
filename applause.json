@@ -1,5 +1,5 @@
 {
-    "baseUrl": "APPLAUSE_AUTOMATION_API_URL",
+    "autoApiBaseUrl": "APPLAUSE_AUTOMATION_API_URL",
     "apiKey": "API_KEY",
     "productId": 0,
     "testRailOptions": {

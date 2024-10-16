@@ -15,13 +15,13 @@ export default async (selector: Selector, falseCase: boolean) => {
     if (falseCase) {
         expect(elements).toHaveLength(
             0,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected element "${selector}" not to exist`
         );
     } else {
         expect(elements.length).toBeGreaterThan(
             0,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Expected element "${selector}" to exist`
         );
     }

@@ -5,27 +5,22 @@
     "scripts": {
         "test": "mocha --config=.mocharc.json",
         "test:reporting": "mocha --config=.mocharc.reporting.json",
-        "test:lint": "eslint 'test/**/*.ts' --fix"
+        "test:lint": "eslint 'test/**/*' --fix"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^6.7.0",
-        "@typescript-eslint/parser": "^6.7.0",
-        "chromedriver": "^119.0.1",
-        "eslint": "^8.49.0",
-        "eslint-config-airbnb-base": "^15.0.0",
-        "eslint-plugin-import": "^2.28.1",
-        "eslint-plugin-mocha": "^10.1.0",
-        "http-server": "^14.1.1",
-        "npm-run-all": "^4.1.5",
-        "ts-node": "^10.9.1",
-        "typescript": "^5.2.2"
+        "@eslint/js": "^9.12.0",
+        "eslint": "^9.12.0",
+        "globals": "^15.11.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.6.3",
+        "typescript-eslint": "^8.9.0"
     },
     "dependencies": {
-        "@types/chai": "^4.3.6",
-        "@types/mocha": "^10.0.1",
-        "chai": "^4.3.8",
-        "mocha": "^10.2.0",
-        "mocha-applause-reporter": "github:ApplauseOSS/mocha-applause-reporter",
-        "playwright": "^1.38.0"
+        "@types/chai": "^5.0.0",
+        "@types/mocha": "^10.0.9",
+        "chai": "^5.1.1",
+        "mocha": "^10.7.3",
+        "mocha-applause-reporter": "github:ApplauseOSS/mocha-applause-reporter#master",
+        "playwright": "^1.48.0"
     }
 }

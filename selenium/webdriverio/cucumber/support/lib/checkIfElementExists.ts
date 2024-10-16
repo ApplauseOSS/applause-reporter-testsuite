@@ -21,19 +21,19 @@ export default async (
     if (falseCase === true) {
         expect(nrOfElements).toHaveLength(
             0,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Element with selector "${selector}" should not exist on the page`
         );
     } else if (exactly) {
         expect(nrOfElements).toHaveLength(
             exactly,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Element with selector "${selector}" should exist exactly ${exactly} time(s)`
         );
     } else {
         expect(nrOfElements.length).toBeGreaterThanOrEqual(
             1,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `Element with selector "${selector}" should exist on the page`
         );
     }

@@ -40,21 +40,21 @@ export default async (
      * object but we want to assert against a string
      */
     if (attrName.match(/(font-size|line-height|display|font-weight)/)) {
-        // @ts-expect-error
+        // @ts-expect-error unknown
         attributeValue = attributeValue.value;
     }
 
     if (falseCase) {
         expect(attributeValue).not.toBe(
             expectedValue,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `${attrType}: ${attrName} of element "${elem}" should not `
             + `contain "${attributeValue}"`
         );
     } else {
         expect(attributeValue).toBe(
             expectedValue,
-            // @ts-expect-error
+            // @ts-expect-error unknown
             `${attrType}: ${attrName} of element "${elem}" should contain `
             + `"${attributeValue}", but "${expectedValue}"`
         );

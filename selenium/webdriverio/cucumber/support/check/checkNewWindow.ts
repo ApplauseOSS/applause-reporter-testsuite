@@ -14,14 +14,14 @@ export default async (falseCase: boolean) => {
         expect(windowHandles)
             .toHaveLength(
                 1,
-                // @ts-expect-error
+                // @ts-expect-error unknown
                 'A new window should not have been opened'
             );
     } else {
         expect(windowHandles)
             .not.toHaveLength(
                 1,
-                // @ts-expect-error
+                // @ts-expect-error unknown
                 'A new window has been opened'
             );
     }

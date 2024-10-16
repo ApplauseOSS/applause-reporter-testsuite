@@ -1,9 +1,9 @@
 /**
  * Close all but the first tab
  */
-/* eslint-disable no-unused-vars */
+ 
 export default async () => {
-/* eslint-enable no-unused-vars */
+ 
     /**
      * Get all the window handles
      * @type {Object}
