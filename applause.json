@@ -1,11 +1,12 @@
 {
-    "autoApiBaseUrl": "APPLAUSE_AUTOMATION_API_URL",
-    "apiKey": "API_KEY",
-    "productId": 0,
+    "autoApiBaseUrl": "https://stage-auto-api.devcloud.applause.com:443/",
+    "publicApiBaseUrl": "https://stage-public-api.devcloud.applause.com",
+    "apiKey": "0b566e78-7fdb-4ce3-9ce1-66d7697ab4290b14ab",
+    "productId": 44201,
     "testRailOptions": {
-        "projectId": 0,
-        "suiteId": 0,
-        "planName": "Example Plan Name",
-        "runName": "Example Run Name"
+        "projectId": 8,
+        "suiteId": 453,
+        "planName": "Patrick Selenium WebdriverIO Mocha runs to reproduce potential race condition",
+        "runName": "WDIO Mocha Reporter Testing PRR 031925"
     }
 }

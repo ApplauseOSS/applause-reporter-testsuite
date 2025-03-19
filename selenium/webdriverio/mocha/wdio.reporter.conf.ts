@@ -39,7 +39,7 @@ export const config: Options.Testrunner = {
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
     protocol: 'https',
-    hostname: 'integration-auto-proxy-new.devcloud.applause.com',
+    hostname: 'stage-auto-proxy-new.devcloud.applause.com',
     port: 443,
     path: '/wd/hub/',
     user: 'ApplauseKey',
@@ -63,6 +63,9 @@ export const config: Options.Testrunner = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+    mochaOpts: {
+      timeout: 600000
+    },
     //
     // ============
     // Capabilities
@@ -168,4 +171,14 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
+        /**
+     * Function to be executed before a test (in Mocha/Jasmine) starts.
+     */
+      beforeTest: async function () {
+        try{
+          await browser.reloadSession();
+        } catch (e) {
+            console.error(`Error while reloading session: ${e}`);
+        }
+    },
 };

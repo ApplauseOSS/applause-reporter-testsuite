@@ -17,7 +17,7 @@ export const config: Options.Testrunner = {
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
     protocol: 'https',
-    hostname: 'integration-auto-proxy-new.devcloud.applause.com',
+    hostname: 'stage-auto-proxy-new.devcloud.applause.com',
     port: 443,
     path: '/wd/hub/',
     user: 'ApplauseKey',
@@ -25,6 +25,11 @@ export const config: Options.Testrunner = {
     headers: {
         Accept: 'application/json; charset=utf-8',
     },
+
+    mochaOpts: {
+        timeout: 600000
+    },
+
     //
     // ==================
     // Specify Test Files

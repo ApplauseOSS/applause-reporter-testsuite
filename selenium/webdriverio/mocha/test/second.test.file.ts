@@ -1,43 +1,43 @@
-describe('Bug reproduction attempts mocha test', function() {
+describe('2nd test file for bug reproduction attempts mocha test', function() {
 
-    it('Search for "Athens"', async function() {
+    it('Search for "Mercury"', async function() {
         await browser.url('https://www.google.com');
         const searchBox = await $('textarea');
-        await searchBox.setValue('Athens');
+        await searchBox.setValue('Mercury');
         // await browser.keys('Enter');
         await browser.pause(2000); // wait for search results to load
         const searchTerm = await searchBox.getValue();
-        expect(searchTerm).toEqual('Athens');
+        expect(searchTerm).toEqual('Mercury');
     });
 
-    it('Search for "Buffalo"', async function() {
+    it('Search for "Venus"', async function() {
         await browser.url('https://www.google.com');
         const searchBox = await $('textarea');
-        await searchBox.setValue('Buffalo');
+        await searchBox.setValue('Venus');
         // await browser.keys('Enter');
         await browser.pause(2000); // wait for search results to load
         const searchTerm = await searchBox.getValue();
-        expect(searchTerm).toEqual('Buffalo');
+        expect(searchTerm).toEqual('Venus');
     });
 
-    it('Search for "Chicago"', async function() {
+    it('Search for "Earth"', async function() {
         await browser.url('https://www.google.com');
         const searchBox = await $('textarea');
-        await searchBox.setValue('Chicago');
+        await searchBox.setValue('Earth');
         // await browser.keys('Enter');
         await browser.pause(2000); // wait for search results to load
         const searchTerm = await searchBox.getValue();
-        expect(searchTerm).toEqual('Chicago');
+        expect(searchTerm).toEqual('Earth');
     });
 
-    it('Search for "Denver"', async function() {
+    it('Search for "Mars"', async function() {
         await browser.url('https://www.google.com');
         const searchBox = await $('textarea');
-        await searchBox.setValue('Denver');
+        await searchBox.setValue('Mars');
         // await browser.keys('Enter');
         await browser.pause(2000); // wait for search results to load
         const searchTerm = await searchBox.getValue();
-        expect(searchTerm).toEqual('Denver');
+        expect(searchTerm).toEqual('Mars');
     });
 
 });
