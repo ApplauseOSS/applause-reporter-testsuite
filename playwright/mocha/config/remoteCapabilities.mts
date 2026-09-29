@@ -27,11 +27,6 @@ export interface BrowserStackCapabilities {
     'client.playwrightVersion': string;
 }
 
-export interface DatatapCapabilities {
-    apiKey: string;
-    providerUrl: string;
-}
-
 export type Capabilities = BaseCapabilities & BrowserStackCapabilities;
 
 export function chromiumCaps(name?: string, build?: string): Capabilities {

@@ -21,9 +21,6 @@ describe('example mocha test', function mochaTest() {
         // Connect to BrowserStack Directly:
         // browser = await bsConnect(chromiumCaps());
 
-        // Or connect to datatap
-        // browser = await datatapConnect(chromiumCaps(), 'apiKey');
-
         context = await browser.newContext();
         page = await context.newPage();
         await page.goto(
