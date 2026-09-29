@@ -289,26 +289,3 @@ npm run test:playwright
 ## Configuration
 
 To configure the tests to run against the Applause framework, you will need to fill in `playwright/applause.json` with your information this will enable reporting to the automation api. You will then need to use the Mocha Reporter by specifying the reporter in the mocha command: `mocha --reporter ./node_modules/mocha-applause-reporter/dist/index.js`
-
-You can also point your tests at the applause datatap proxy and to a playwright provider by using the following:
-
-```javascript
-const bsCaps = {
-    'browser': 'playwright-chromium',
-    'os': 'osx',
-    'os_version': 'big sur',
-    'name': 'Playwright-mocha test on Chromium',
-    'build': 'playwright-mocha-build-1',
-    'browserstack.username': 'YOUR_USERNAME',
-    'browserstack.accessKey': 'YOUR_ACCESS_KEY',
-    'client.playwrightVersion': clientPlaywrightVersion
-};
-
-const applauseCapabilities = {
-    'applause:options': {
-        apiKey: 'PASS_ME_A_KEY',
-        providerUrl: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(bsCaps))}`
-}
-}
-const browser = await chromium.connectOverCDP(`ws://datatapURI/cdp?caps=${encodeURIComponent(JSON.stringify(applauseCapabilities))}`);
-```
