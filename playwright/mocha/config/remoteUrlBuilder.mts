@@ -1,17 +1,9 @@
-import { Capabilities, DatatapCapabilities } from './remoteCapabilities.mts';
+import { Capabilities } from './remoteCapabilities.mts';
 
 const browserStackBaseUrl = 'wss://cdp.browserstack.com/playwright';
-const datatapBaseUrl = 'wss://prod-datatap.cloud.applause.com/playwright';
 
-export function buildUrl(baseUrl: string, caps: Capabilities | DatatapCapabilities): string {
+export function buildUrl(baseUrl: string, caps: Capabilities): string {
     return `${baseUrl}?caps=${encodeURIComponent(JSON.stringify(caps))}`;
-}
-
-export function buildDatatapUrl(caps: Capabilities, apiKey: string): string {
-    return buildUrl(datatapBaseUrl, {
-        apiKey,
-        providerUrl: buildBrowserStackUrl(caps),
-    });
 }
 
 export function buildBrowserStackUrl(caps: Capabilities): string {
